@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/magma/static/css/main.0da9f1f3.css",
+    "main.js": "/magma/static/js/main.6126b4fb.js",
+    "index.html": "/magma/index.html",
+    "main.0da9f1f3.css.map": "/magma/static/css/main.0da9f1f3.css.map",
+    "main.6126b4fb.js.map": "/magma/static/js/main.6126b4fb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0da9f1f3.css",
+    "static/js/main.6126b4fb.js"
+  ]
+}
