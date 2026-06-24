@@ -1,0 +1,148 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.awardsSection {
+  background: #1d2026;
+  padding: 80px 0 60px;
+  border-radius: 0 0 40px 40px;
+
+  @include xs {
+    border-radius: 0 0 24px 24px;
+  }
+
+  .sectionTitle {
+    font-size: 38px;
+    font-weight: 700;
+    color: $color-white;
+    text-align: center;
+    margin-bottom: 60px;
+    font-family: $font-sans;
+
+    @include sm {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .awardsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .awardRow {
+    display: grid;
+    grid-template-columns: 80px 1fr auto auto;
+    align-items: center;
+    gap: 30px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba($color-white, 0.08);
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:first-child {
+      border-top: 1px solid rgba($color-white, 0.08);
+    }
+
+    &:hover {
+      .awardTitle {
+        color: $color-orange;
+        padding-left: 10px;
+      }
+
+      .arrowBtn {
+        background: $color-orange;
+        border-color: $color-orange;
+        color: $color-white;
+      }
+    }
+
+    @include md {
+      grid-template-columns: 60px 1fr auto;
+
+      .awardLocation {
+        display: none;
+      }
+    }
+
+    @include sm {
+      grid-template-columns: 50px 1fr auto;
+      gap: 15px;
+    }
+  }
+
+  .awardYear {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba($color-white, 0.4);
+    font-family: $font-sans;
+  }
+
+  .awardTitle {
+    font-size: 17px;
+    font-weight: 400;
+    color: $color-white;
+    font-family: $font-sans;
+    transition: all 0.3s ease;
+
+    @include sm {
+      font-size: 14px;
+    }
+  }
+
+  .awardLocation {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: rgba($color-white, 0.4);
+    white-space: nowrap;
+
+    svg {
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+  }
+
+  .arrowBtn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba($color-white, 0.25);
+    background: transparent;
+    color: rgba($color-white, 0.6);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .showMoreWrap {
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .showMoreBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 35px;
+    border: 1px solid rgba($color-white, 0.25);
+    border-radius: 50px;
+    background: transparent;
+    color: $color-white;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: $font-sans;
+
+    &:hover {
+      border-color: $color-white;
+      background: rgba($color-white, 0.08);
+    }
+  }
+}

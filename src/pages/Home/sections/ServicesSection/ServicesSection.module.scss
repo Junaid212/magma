@@ -1,0 +1,227 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.servicesSection {
+  background-color: $color-beige;
+  padding: 80px 0 0;
+  position: relative;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+  margin: 0;
+  font-family: $font-sans;
+}
+
+// 4-column grid
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  align-items: start;
+
+  @media (max-width: 991px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 575px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Each column wrapper handles the stagger offset
+.serviceCol {
+  border-left: 1px solid rgba($color-dark, 0.12);
+
+  &:first-child {
+    border-left: none;
+  }
+
+  // Even columns (2 and 4) are shifted down
+  &.colEven {
+    margin-top: 80px;
+
+    @media (max-width: 991px) {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 991px) {
+    &:nth-child(1) {
+      border-left: none;
+    }
+    &:nth-child(2) {
+      border-left: 1px solid rgba($color-dark, 0.12);
+    }
+    &:nth-child(3) {
+      border-left: none;
+      border-top: 1px solid rgba($color-dark, 0.12);
+    }
+    &:nth-child(4) {
+      border-left: 1px solid rgba($color-dark, 0.12);
+      border-top: 1px solid rgba($color-dark, 0.12);
+    }
+  }
+
+  @media (max-width: 575px) {
+    border-left: none;
+    border-top: 1px solid rgba($color-dark, 0.12);
+
+    &:first-child {
+      border-top: none;
+    }
+  }
+}
+
+// Card inner content
+.serviceCard {
+  padding: 35px 30px 40px;
+
+  @media (max-width: 575px) {
+    padding: 28px 20px;
+  }
+}
+
+// Icon at top of card
+.cardIcon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 22px;
+  display: block;
+
+  svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+// Service title — bold, dark
+.cardTitle {
+  font-size: 22px;
+  font-weight: 700;
+  color: $color-dark;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  font-family: $font-sans;
+  letter-spacing: -0.3px;
+}
+
+// Service image — below title
+.cardImage {
+  width: 100%;
+  height: 180px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+// Tags / description text
+.cardTags {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #888888;
+  margin-bottom: 28px;
+  font-family: $font-sans;
+}
+
+// Arrow circle button
+.cardArrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba($color-dark, 0.2);
+  background: transparent;
+  color: $color-dark;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: $font-sans;
+
+  &:hover {
+    background: $color-orange;
+    border-color: $color-orange;
+    color: $color-white;
+    transform: scale(1.08);
+  }
+}
+
+// CTA button area
+.ctaWrap {
+  text-align: center;
+  padding: 70px 0 80px;
+}
+
+.quotaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 45px;
+  background: $color-orange;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-white;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  font-family: $font-sans;
+
+  &:hover {
+    background: darken(#FF481F, 10%);
+    color: $color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba($color-orange, 0.4);
+  }
+}
+
+// Bottom decorative building image
+.bottomBuilding {
+  width: 60%;
+  margin: 0 auto;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 20px 20px 0 0;
+  }
+
+  @media (max-width: 767px) {
+    width: 85%;
+  }
+
+  @media (max-width: 575px) {
+    width: 100%;
+
+    img {
+      height: 280px;
+      border-radius: 0;
+    }
+  }
+}

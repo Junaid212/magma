@@ -1,0 +1,520 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 80px;
+  z-index: $z-header;
+  transition: transform 0.4s ease, background 0.4s ease, padding 0.4s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include max-width(1200px) {
+    padding: 30px 40px;
+  }
+  
+  @include max-width(768px) {
+    padding: 20px 20px;
+  }
+
+  // Sticky style
+  &.sticky {
+    position: fixed;
+    background-color: rgba(30, 30, 32, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 80px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    animation: slideDown 0.4s ease forwards;
+
+    @include max-width(1200px) {
+      padding: 15px 40px;
+    }
+    
+    @include max-width(768px) {
+      padding: 12px 20px;
+    }
+
+    .navLink {
+      color: $color-white;
+      
+      &.active {
+        color: $color-orange;
+      }
+    }
+
+    .langSwitch, .searchIcon, .burgerBtn {
+      color: $color-white;
+    }
+  }
+
+  &.hide {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Logo Styles
+   ========================================================================== */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  z-index: $z-header + 10;
+
+  .logoIcon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: $color-white;
+    }
+  }
+
+  .logoText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+
+    span:first-child {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: $color-white;
+    }
+
+    span:last-child {
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-white;
+      opacity: 0.8;
+      font-family: $font-serif;
+      font-style: italic;
+    }
+  }
+}
+
+/* ==========================================================================
+   Navigation Menu Links
+   ========================================================================== */
+.navMenu {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @include max-width(992px) {
+    display: none; // Collapsed in mobile view, rendered inside burger dropdown
+  }
+}
+
+.navLink {
+  font-size: 15px;
+  font-weight: 500;
+  color: $color-white;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 5px 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-orange;
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: $color-orange;
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &.active {
+    color: $color-orange;
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+/* ==========================================================================
+   Right Panel elements (Lang, Search, Burger)
+   ========================================================================== */
+.rightPanel {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  z-index: $z-header + 10;
+}
+
+.langSwitch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $color-white;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+
+  span {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+
+    &:hover, &.active {
+      opacity: 1;
+      color: $color-orange;
+    }
+  }
+
+  .divider {
+    opacity: 0.3;
+  }
+}
+
+.searchIcon {
+  color: $color-white;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    color: $color-orange;
+    transform: scale(1.1);
+  }
+}
+
+.burgerBtn {
+  color: $color-white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 28px;
+  height: 24px;
+  padding: 0;
+
+  span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    background-color: currentColor;
+    transition: transform 0.3s ease, width 0.3s ease, background-color 0.3s ease;
+
+    &:first-child {
+      transform-origin: top left;
+    }
+    &:last-child {
+      width: 20px;
+      align-self: flex-end;
+      transform-origin: bottom left;
+    }
+  }
+
+  &:hover {
+    color: $color-orange;
+    span:last-child {
+      width: 28px;
+    }
+  }
+
+  &.open {
+    color: $color-white;
+    span:first-child {
+      transform: rotate(45deg) translate(3px, 2px);
+    }
+    span:last-child {
+      width: 28px;
+      transform: rotate(-45deg) translate(3px, -2px);
+    }
+  }
+}
+
+/* ==========================================================================
+   Side Drawer Overlay Menu
+   ========================================================================== */
+.drawerOverlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: $z-overlay;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+  visibility: hidden;
+
+  &.open {
+    pointer-events: auto;
+    visibility: visible;
+  }
+}
+
+.drawerBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+
+  .open & {
+    opacity: 1;
+  }
+}
+
+.drawerContent {
+  position: relative;
+  width: 480px;
+  max-width: 100%;
+  height: 100%;
+  background-color: $color-dark;
+  color: $color-white;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: translateX(100%);
+  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  @include custom-scrollbar;
+
+  .open & {
+    transform: translateX(0);
+  }
+
+  @include max-width(576px) {
+    padding: 60px 40px;
+  }
+}
+
+.drawerTop {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.drawerDesc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba($color-white, 0.7);
+}
+
+.drawerMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+
+  // Shown on mobile when top nav collapses
+  @include min-width(993px) {
+    display: none;
+  }
+
+  .drawerNavLink {
+    font-size: 24px;
+    font-weight: 700;
+    color: $color-white;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+
+    &:hover, &.active {
+      color: $color-orange;
+      padding-left: 10px;
+    }
+  }
+}
+
+.drawerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  h4 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: $color-orange;
+  }
+
+  p, a {
+    font-size: 16px;
+    color: rgba($color-white, 0.8);
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: $color-orange;
+  }
+}
+
+.drawerFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba($color-white, 0.1);
+  padding-top: 30px;
+  margin-top: 50px;
+}
+
+.socials {
+  display: flex;
+  gap: 20px;
+
+  a {
+    color: rgba($color-white, 0.6);
+    font-size: 18px;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      color: $color-orange;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+.copyright {
+  font-size: 12px;
+  color: rgba($color-white, 0.4);
+}
+
+/* ==========================================================================
+   Fullscreen Search Overlay Modal
+   ========================================================================== */
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(30, 30, 32, 0.98);
+  backdrop-filter: blur(10px);
+  z-index: $z-overlay + 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.searchClose {
+  position: absolute;
+  top: 40px;
+  right: 80px;
+  background: none;
+  border: none;
+  color: $color-white;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    color: $color-orange;
+    transform: rotate(90deg);
+  }
+
+  @include max-width(768px) {
+    top: 20px;
+    right: 20px;
+  }
+}
+
+.searchContainer {
+  width: 600px;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: $color-orange;
+    text-align: center;
+  }
+}
+
+.searchForm {
+  position: relative;
+  width: 100%;
+
+  input {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid rgba($color-white, 0.2);
+    padding: 15px 40px 15px 0;
+    color: $color-white;
+    font-size: 24px;
+    font-family: $font-sans;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-orange;
+    }
+
+    &::placeholder {
+      color: rgba($color-white, 0.4);
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: $color-white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+}

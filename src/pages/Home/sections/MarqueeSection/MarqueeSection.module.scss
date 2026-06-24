@@ -1,0 +1,37 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.marqueeSection {
+  background: $color-gray-light;
+  padding: 30px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.marqueeRow {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marqueeTrack {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  will-change: transform;
+}
+
+.marqueeWord {
+  font-size: clamp(60px, 8vw, 120px);
+  font-weight: 700;
+  font-family: $font-sans;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba($color-dark, 0.2);
+  letter-spacing: -1px;
+  padding: 0 40px;
+  white-space: nowrap;
+  user-select: none;
+
+  @include sm {
+    font-size: 60px;
+  }
+}

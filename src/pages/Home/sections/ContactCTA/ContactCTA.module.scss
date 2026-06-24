@@ -1,0 +1,70 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.contactCTA {
+  background: $color-beige;
+  padding: 60px 0 100px;
+  position: relative;
+  overflow: hidden;
+
+  .emailLink {
+    display: block;
+    font-size: clamp(42px, 6vw, 80px);
+    font-weight: 700;
+    color: $color-orange;
+    text-decoration: none;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-family: $font-sans;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.85;
+      color: $color-orange;
+    }
+
+    @include sm {
+      font-size: 32px;
+    }
+
+    @include xs {
+      font-size: 26px;
+    }
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.7;
+    color: $color-dark;
+    margin: 0;
+    font-family: $font-sans;
+
+    @include sm {
+      font-size: 14px;
+    }
+  }
+
+  .decorSvg {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 350px;
+    pointer-events: none;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include md {
+      width: 300px;
+      right: 0;
+    }
+
+    @include sm {
+      display: none;
+    }
+  }
+}

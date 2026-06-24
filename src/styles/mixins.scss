@@ -1,0 +1,66 @@
+@import './variables.scss';
+
+// Media Queries
+@mixin xs {
+  @media (max-width: #{$breakpoint-sm - 1px}) { @content; }
+}
+
+@mixin sm {
+  @media (min-width: #{$breakpoint-sm}) { @content; }
+}
+
+@mixin md {
+  @media (min-width: #{$breakpoint-md}) { @content; }
+}
+
+@mixin lg {
+  @media (min-width: #{$breakpoint-lg}) { @content; }
+}
+
+@mixin xl {
+  @media (min-width: #{$breakpoint-xl}) { @content; }
+}
+
+@mixin xxl {
+  @media (min-width: #{$breakpoint-xxl}) { @content; }
+}
+
+@mixin xxxl {
+  @media (min-width: #{$breakpoint-3xl}) { @content; }
+}
+
+@mixin max-width($width) {
+  @media (max-width: #{$width}) { @content; }
+}
+
+@mixin min-width($width) {
+  @media (min-width: #{$width}) { @content; }
+}
+
+// Flex Center
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Absolute Center
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// Custom Scrollbar
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-gray-medium;
+    border-radius: 10px;
+  }
+}

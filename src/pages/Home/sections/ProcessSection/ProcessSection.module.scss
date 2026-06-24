@@ -1,0 +1,206 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.processSection {
+  background: $color-gray-light;
+  padding: 100px 0 120px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 40px 40px 0 0;
+
+  @include xs {
+    padding: 70px 0 80px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .sectionTitle {
+    font-size: 42px;
+    font-weight: 700;
+    color: $color-dark;
+    text-align: center;
+    margin-bottom: 70px;
+    font-family: $font-sans;
+
+    @include sm {
+      font-size: 32px;
+      margin-bottom: 50px;
+    }
+  }
+
+  .processLayout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+
+    @include md {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+  }
+
+  .accordionCol {
+    // Left column
+  }
+
+  .accordionItem {
+    border-top: 1px solid rgba($color-dark, 0.12);
+
+    &:last-of-type {
+      border-bottom: 1px solid rgba($color-dark, 0.12);
+    }
+
+    &.active {
+      .itemTitle {
+        color: $color-orange;
+      }
+    }
+  }
+
+  .accordionHeader {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 22px 0;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      .itemTitle {
+        color: $color-orange;
+      }
+    }
+  }
+
+  .itemNum {
+    font-size: 13px;
+    font-weight: 400;
+    color: $color-gray-medium;
+    min-width: 35px;
+  }
+
+  .itemTitle {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-dark;
+    font-family: $font-sans;
+    transition: color 0.3s ease;
+
+    @include sm {
+      font-size: 16px;
+    }
+  }
+
+  .toggleIcon {
+    font-size: 14px;
+    color: $color-gray-medium;
+    transition: transform 0.3s ease;
+  }
+
+  .accordionBody {
+    overflow: hidden;
+    transition: max-height 0.45s ease;
+  }
+
+  .accordionText {
+    font-size: 14px;
+    line-height: 1.8;
+    color: $color-gray-dark;
+    padding: 0 0 25px 50px;
+    margin: 0;
+
+    @include sm {
+      padding-left: 35px;
+    }
+  }
+
+  .projectsBtn {
+    margin-top: 40px;
+  }
+
+  .outlineBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border: 1px solid $color-orange;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-orange;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $color-orange;
+      color: $color-white;
+      transform: translateY(-2px);
+    }
+  }
+
+  .imageCol {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+
+    @include md {
+      order: -1;
+    }
+  }
+
+  .imageWrap {
+    width: 360px;
+    height: 450px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 20px 25px 60px rgba($color-dark, 0.2);
+    transform: rotate(8deg);
+    position: relative;
+    z-index: 2;
+
+    @include lg {
+      width: 300px;
+      height: 380px;
+    }
+
+    @include md {
+      width: 280px;
+      height: 350px;
+      transform: rotate(5deg);
+    }
+
+    @include sm {
+      width: 240px;
+      height: 300px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .decorSvg {
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    left: -20px;
+    top: -50px;
+    pointer-events: none;
+    z-index: 1;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include md {
+      display: none;
+    }
+  }
+}

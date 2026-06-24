@@ -1,0 +1,203 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+.blogSection {
+  background: $color-beige;
+  padding: 80px 0 100px;
+
+  .sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+
+  .sectionTitle {
+    font-size: 36px;
+    font-weight: 700;
+    color: $color-dark;
+    font-family: $font-sans;
+
+    @include sm {
+      font-size: 26px;
+    }
+  }
+
+  .allBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    border: 1px solid $color-orange;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: $color-orange;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background: $color-orange;
+      color: $color-white;
+    }
+  }
+
+  .swiperWrap {
+    position: relative;
+    padding: 0 60px;
+
+    @include sm {
+      padding: 0 40px;
+    }
+
+    @include xs {
+      padding: 0 20px;
+    }
+  }
+
+  .blogSwiper {
+    // no extra styles needed
+  }
+
+  .navArrow {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba($color-dark, 0.2);
+    background: rgba($color-white, 0.7);
+    color: $color-dark;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $color-dark;
+      color: $color-white;
+    }
+
+    &.prev {
+      left: 5px;
+    }
+
+    &.next {
+      right: 5px;
+    }
+
+    @include xs {
+      width: 36px;
+      height: 36px;
+      font-size: 18px;
+    }
+  }
+
+  .postCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .cardImageWrap {
+    height: 320px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 0;
+
+    @include md {
+      height: 250px;
+    }
+
+    @include sm {
+      height: 200px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.04);
+    }
+  }
+
+  .cardMeta {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 25px 0 10px;
+  }
+
+  .dateBlock {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .day {
+    font-size: 42px;
+    font-weight: 700;
+    color: $color-dark;
+    line-height: 1;
+    font-family: $font-sans;
+  }
+
+  .month,
+  .year {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-gray-medium;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+
+  .postInfo {
+    flex: 1;
+  }
+
+  .postTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-dark;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    font-family: $font-sans;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-orange;
+    }
+
+    @include sm {
+      font-size: 16px;
+    }
+  }
+
+  .catList {
+    font-size: 13px;
+  }
+
+  .catLink {
+    color: $color-orange;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+      color: $color-orange;
+    }
+  }
+}
