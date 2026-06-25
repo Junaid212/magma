@@ -1,0 +1,383 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+// ============================================================
+// Customization Section
+// Follows exact design system: $color-beige bg, $color-dark text,
+// $color-orange accents, $font-sans body, 14px border-radius cards,
+// same hover/shadow/transition patterns as ServicesSection
+// ============================================================
+
+.customizationSection {
+  background-color: $color-beige;
+  padding: 100px 0 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+// ── Decorative blob (consistent with site's soft organic shapes) ──
+.decorBlob {
+  position: absolute;
+  top: -180px;
+  right: -180px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba($color-orange, 0.06) 0%,
+    rgba($color-beige, 0) 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+
+  @media (max-width: $breakpoint-md) {
+    width: 320px;
+    height: 320px;
+    top: -100px;
+    right: -100px;
+  }
+}
+
+// ── Section Header ──
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 70px;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-md) {
+    margin-bottom: 50px;
+  }
+}
+
+.sectionLabel {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+  margin: 0 0 20px;
+  display: block;
+}
+
+.sectionHeading {
+  // font-family: $font-serif;
+  font-size: clamp(44px, 5vw, 40px);
+  font-weight: 700;
+  line-height: 1;
+  color: $color-dark;
+  margin: 0 0 24px;
+  // letter-spacing: 1px;
+
+  // Each word on its own line, revealed via GSAP
+  span {
+    display: block;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    font-size: clamp(38px, 9vw, 58px);
+  }
+}
+
+.sectionSubtitle {
+  font-family: $font-sans;
+  font-size: 15px;
+  line-height: 1.75;
+  color: $color-gray-medium;
+  max-width: 520px;
+  margin: 0 auto;
+  font-weight: 400;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 14px;
+  }
+}
+
+// ── Cards Grid — 5 columns on desktop, responsive ──
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: $breakpoint-xl) {
+    // 1200px — still 5 col but tighter
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    // 992px — switch to 3 col
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    // 768px — 2 col
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 400px) {
+    // Very small — single col
+    grid-template-columns: 1fr;
+  }
+}
+
+// ── Individual Card ──
+.card {
+  position: relative;
+  padding: 36px 26px 32px;
+  border-left: 1px solid rgba($color-dark, 0.12);
+  border-bottom: 1px solid rgba($color-dark, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  cursor: pointer;
+  transition: background-color 0.35s ease;
+  background-color: transparent;
+
+  // Remove left border on first item per row
+  &:nth-child(5n + 1) {
+    border-left: none;
+  }
+
+  // Remove bottom border on last row (items 6–10)
+  &:nth-child(n + 6) {
+    border-bottom: none;
+  }
+
+  // Hover: lift + warm background
+  &:hover {
+    background-color: rgba($color-dark, 0.03);
+
+    .cardAccent {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    .cardIcon svg path,
+    .cardIcon svg rect,
+    .cardIcon svg circle {
+      stroke: $color-dark;
+    }
+
+    .cardArrow {
+      background: $color-orange;
+      border-color: $color-orange;
+      color: $color-white;
+      transform: scale(1.08);
+    }
+
+    .cardTitle {
+      color: $color-orange;
+    }
+  }
+
+  // ── 3-col breakpoint borders ──
+  @media (max-width: $breakpoint-lg) and (min-width: #{$breakpoint-md + 1px}) {
+    &:nth-child(5n + 1) {
+      border-left: 1px solid rgba($color-dark, 0.12);
+    }
+    &:nth-child(3n + 1) {
+      border-left: none;
+    }
+    &:nth-child(n + 6) {
+      border-bottom: 1px solid rgba($color-dark, 0.12);
+    }
+    // Last row of 3-col (items 9, 10) — both in final row
+    &:nth-last-child(-n + 1) {
+      border-bottom: none;
+    }
+    &:nth-child(8),
+    &:nth-child(9),
+    &:nth-child(10) {
+      border-bottom: none;
+    }
+  }
+
+  // ── 2-col breakpoint borders ──
+  @media (max-width: $breakpoint-md) {
+    padding: 30px 20px 28px;
+
+    &:nth-child(5n + 1) {
+      border-left: 1px solid rgba($color-dark, 0.12);
+    }
+    &:nth-child(2n + 1) {
+      border-left: none;
+    }
+    &:nth-child(n + 6) {
+      border-bottom: 1px solid rgba($color-dark, 0.12);
+    }
+    &:nth-child(9),
+    &:nth-child(10) {
+      border-bottom: none;
+    }
+  }
+
+  // ── 1-col breakpoint borders ──
+  @media (max-width: 400px) {
+    border-left: none;
+    border-bottom: 1px solid rgba($color-dark, 0.12);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+// ── Top accent bar that slides in on hover ──
+.cardAccent {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: $color-orange;
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+// ── Icon ──
+.cardIcon {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+
+  svg {
+    width: 34px;
+    height: 34px;
+
+    path,
+    rect,
+    circle {
+      stroke: $color-orange;
+      transition: stroke 0.3s ease;
+    }
+  }
+}
+
+// ── Card body (title + desc) ──
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cardTitle {
+  font-family: $font-sans;
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-dark;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+  margin: 0;
+  transition: color 0.3s ease;
+
+  @media (max-width: $breakpoint-xl) {
+    font-size: 15px;
+  }
+}
+
+.cardDesc {
+  font-family: $font-sans;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: $color-gray-medium;
+  margin: 0;
+
+  @media (max-width: $breakpoint-xl) {
+    font-size: 12px;
+  }
+}
+
+// ── Arrow button — same exact pattern as ServicesSection ──
+.cardArrow {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba($color-dark, 0.2);
+  background: transparent;
+  color: $color-dark;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: $transition-fast;
+  align-self: flex-start;
+  flex-shrink: 0;
+  font-family: $font-sans;
+}
+
+// ── Bottom CTA Row ──
+.ctaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 70px;
+  padding-top: 50px;
+  border-top: 1px solid rgba($color-dark, 0.1);
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 50px;
+    padding-top: 36px;
+  }
+}
+
+.ctaNote {
+  // font-family: $font-serif;
+  font-size: 16px;
+  font-weight: 200;
+  color: $color-dark;
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 18px;
+  }
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 17px 42px;
+  background: $color-orange;
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: $transition-fast;
+  flex-shrink: 0;
+
+  &:hover {
+    background: darken(#FF481F, 10%);
+    color: $color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba($color-orange, 0.35);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}

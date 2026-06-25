@@ -3,7 +3,9 @@ import HeroSlider from './sections/HeroSlider/HeroSlider';
 import AboutSection from './sections/AboutSection/AboutSection';
 import ServicesSection from './sections/ServicesSection/ServicesSection';
 import ProcessSection from './sections/ProcessSection/ProcessSection';
+import ProductsSection from './sections/ProductsSection/ProductsSection';
 import ProjectsSection from './sections/ProjectsSection/ProjectsSection';
+import CustomizationSection from './sections/CustomizationSection/CustomizationSection';
 import TestimonialsSection from './sections/TestimonialsSection/TestimonialsSection';
 import MarqueeSection from './sections/MarqueeSection/MarqueeSection';
 import AwardsSection from './sections/AwardsSection/AwardsSection';
@@ -21,8 +23,14 @@ const Home = () => {
       {/* 2. About Section - Est. 1986, tilted image, years stat */}
       <AboutSection />
 
+      {/* Products - Nature Paints The Best Masterpieces */}
+      <ProductsSection />
+
       {/* 3. Services Section - 4-col grid with icons */}
       <ServicesSection />
+
+      {/* Customization - Custom stone applications */}
+      <CustomizationSection />
 
       {/* 4. Process Work - Accordion + rotated image */}
       {/* <ProcessSection /> */}
@@ -37,13 +45,13 @@ const Home = () => {
       <MarqueeSection />
 
       {/* 8. Awards & Recognition - Dark section with award list */}
-      <AwardsSection />
+      {/* <AwardsSection /> */}
 
       {/* 9. Team - Circular portraits + stats */}
       {/* <TeamSection /> */}
 
       {/* 10. Latest Posts - Blog swiper */}
-      <BlogSection />
+      {/* <BlogSection /> */}
 
       {/* 11. Contact CTA - Large email address */}
       {/* <ContactCTA /> */}
