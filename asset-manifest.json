@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/magma/static/css/main.0da9f1f3.css",
-    "main.js": "/magma/static/js/main.6126b4fb.js",
+    "main.css": "/magma/static/css/main.5aa9ba50.css",
+    "main.js": "/magma/static/js/main.8faa8878.js",
     "index.html": "/magma/index.html",
-    "main.0da9f1f3.css.map": "/magma/static/css/main.0da9f1f3.css.map",
-    "main.6126b4fb.js.map": "/magma/static/js/main.6126b4fb.js.map"
+    "main.5aa9ba50.css.map": "/magma/static/css/main.5aa9ba50.css.map",
+    "main.8faa8878.js.map": "/magma/static/js/main.8faa8878.js.map"
   },
   "entrypoints": [
-    "static/css/main.0da9f1f3.css",
-    "static/js/main.6126b4fb.js"
+    "static/css/main.5aa9ba50.css",
+    "static/js/main.8faa8878.js"
   ]
 }
