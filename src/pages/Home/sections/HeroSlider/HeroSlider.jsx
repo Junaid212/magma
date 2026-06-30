@@ -10,7 +10,7 @@ import styles from './HeroSlider.module.scss';
 const slides = [
   {
     id: 1,
-    bg: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
+    bg: './assets/images/img/1.webp',
     title: 'archin',
     subtitle: 'Architecture Design Studio',
   },
@@ -20,12 +20,12 @@ const slides = [
     title: 'shape',
     subtitle: 'Architecture Language Signature',
   },
-  {
-    id: 3,
-    bg: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80',
-    title: 'time',
-    subtitle: 'Sustainable Material Resource',
-  },
+  // {
+  //   id: 3,
+  //   bg: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80',
+  //   title: 'time',
+  //   subtitle: 'Sustainable Material Resource',
+  // },
 ];
 
 const HeroSlider = () => {

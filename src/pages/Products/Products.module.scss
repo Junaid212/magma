@@ -1,0 +1,606 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+// Local fonts & colors
+$font-display: 'Cormorant Garamond', 'Instrument Serif', Georgia, serif;
+$gold: #b79a5e;
+
+.pageWrapper {
+  background-color: $color-beige;
+  min-height: 100vh;
+}
+
+// ══════════════════════════════════════════
+// HERO BANNER
+// ══════════════════════════════════════════
+.heroSection {
+  background-color: $color-dark;
+  padding: 180px 0 110px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 140px 0 80px;
+  }
+  @media (max-width: $breakpoint-sm) {
+    padding: 120px 0 60px;
+  }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.22;
+    display: block;
+  }
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba($color-dark, 0.95) 0%,
+    rgba($color-dark, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.heroBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-family: $font-sans;
+
+  a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.5);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-orange;
+    }
+  }
+
+  .sep {
+    display: flex;
+    align-items: center;
+    font-size: 8px;
+    color: rgba($color-white, 0.3);
+  }
+
+  .active {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $color-orange;
+  }
+}
+
+.heroTitle {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: clamp(48px, 12vw, 84px);
+  font-weight: 300;
+  line-height: 1;
+  color: $color-white;
+  margin: 0 0 20px;
+  letter-spacing: -1px;
+}
+
+.heroSubtitle {
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba($color-white, 0.65);
+  max-width: 580px;
+  margin: 0;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 14px;
+  }
+}
+
+// ══════════════════════════════════════════
+// SEARCH AND FILTER CONTROLS
+// ══════════════════════════════════════════
+.filterSection {
+  padding: 50px 0;
+  background-color: rgba($color-white, 0.3);
+  border-bottom: 1px solid rgba($color-dark, 0.08);
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 10;
+  margin-bottom: 40px;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 30px 0;
+  }
+}
+
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  flex: 0 0 420px;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: $breakpoint-lg) {
+    flex: 1;
+  }
+}
+
+.searchIcon {
+  position: absolute;
+  left: 20px;
+  color: rgba($color-dark, 0.4);
+  font-size: 15px;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 16px 48px;
+  border: 1px solid rgba($color-dark, 0.12);
+  border-radius: 30px;
+  background: rgba($color-white, 0.85);
+  color: $color-dark;
+  font-family: $font-sans;
+  font-size: 14px;
+  transition: all 0.3s ease;
+
+  &:focus {
+    background: $color-white;
+    border-color: $color-orange;
+    box-shadow: 0 8px 24px rgba($color-dark, 0.04);
+  }
+
+  &::placeholder {
+    color: rgba($color-dark, 0.4);
+  }
+}
+
+.clearSearch {
+  position: absolute;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  line-height: 1;
+  color: rgba($color-dark, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-orange;
+  }
+}
+
+.tabsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: none; // Firefox
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome/Safari
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    justify-content: flex-start;
+  }
+}
+
+.tabBtn {
+  padding: 12px 28px;
+  border: 1px solid rgba($color-dark, 0.12);
+  border-radius: 30px;
+  background: rgba($color-white, 0.6);
+  color: $color-dark;
+  font-family: $font-sans;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba($color-white, 0.95);
+    border-color: rgba($color-dark, 0.3);
+    transform: translateY(-1px);
+  }
+
+  &.active {
+    background: $color-dark;
+    color: $color-white;
+    border-color: $color-dark;
+    box-shadow: 0 8px 20px rgba($color-dark, 0.15);
+
+    &:hover {
+      background: $color-dark;
+      color: $color-white;
+    }
+  }
+}
+
+// ══════════════════════════════════════════
+// PRODUCTS LIST SECTION
+// ══════════════════════════════════════════
+.productsSection {
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.noResults {
+  text-align: center;
+  padding: 80px 20px;
+  background: rgba($color-white, 0.6);
+  border-radius: 20px;
+  border: 1px solid rgba($color-dark, 0.06);
+
+  h3 {
+    font-family: $font-sans;
+    font-size: 20px;
+    color: $color-dark;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: $color-gray-medium;
+    margin-bottom: 24px;
+  }
+}
+
+.resetBtn {
+  padding: 14px 34px;
+  background: $color-orange;
+  color: $color-white;
+  border: none;
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-weight: 600;
+  font-size: 13.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken($color-orange, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba($color-orange, 0.25);
+  }
+}
+
+.categoriesStack {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+
+  @media (max-width: $breakpoint-md) {
+    gap: 60px;
+  }
+}
+
+.categoryBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.categoryHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.categoryTitle {
+  font-family: $font-serif;
+  font-size: clamp(32px, 4.5vw, 44px);
+  font-weight: 400;
+  font-style: italic;
+  color: $color-dark;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.categoryDivider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.dividerLine {
+  display: block;
+  width: 80px;
+  height: 1.5px;
+  background: $gold;
+  flex-shrink: 0;
+}
+
+.dividerLabel {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: $gold;
+  white-space: nowrap;
+}
+
+// ─── Products Responsive Grid (4 col desktop, 2 col tablet, 1 col mobile) ───
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+
+  @media (max-width: $breakpoint-xl) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+// ─── Product Card Styling (Equal Heights & Premium Aesthetics) ───
+.productCard {
+  background: rgba($color-white, 0.7);
+  border: 1px solid rgba($color-white, 0.5);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 12px 36px rgba($color-dark, 0.03);
+  backdrop-filter: blur(8px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              background-color 0.4s ease;
+
+  &:hover {
+    transform: translateY(-8px);
+    background: $color-white;
+    border-color: rgba($color-orange, 0.15);
+    box-shadow: 0 20px 48px rgba($color-dark, 0.08);
+
+    .productImage {
+      transform: scale(1.08);
+    }
+
+    .viewDetailsBtn {
+      color: $color-orange;
+
+      .arrow {
+        transform: translate(3px, -3px);
+      }
+    }
+  }
+}
+
+.cardImageContainer {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: rgba($color-dark, 0.05);
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cardContent {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; // Allows equal height matching
+}
+
+.productName {
+  font-family: $font-sans;
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-dark;
+  margin: 0 0 10px;
+  letter-spacing: -0.2px;
+}
+
+.productDesc {
+  font-family: $font-sans;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba($color-dark, 0.85);
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+
+.productDetails {
+  font-family: $font-sans;
+  font-size: 12.5px;
+  color: $color-gray-medium;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.cardFooter {
+  margin-top: auto; // Pushes buttons to alignment bottom
+  border-top: 1px solid rgba($color-dark, 0.05);
+  padding-top: 16px;
+}
+
+.viewDetailsBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: $font-sans;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: $color-dark;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  .arrow {
+    font-size: 11px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-block;
+  }
+}
+
+// ══════════════════════════════════════════
+// CONTACT CTA SECTION
+// ══════════════════════════════════════════
+.ctaSection {
+  padding: 60px 0 120px;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 40px 0 80px;
+  }
+}
+
+.ctaBox {
+  background-color: $color-dark;
+  border-radius: 24px;
+  padding: 80px 60px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
+
+  @media (max-width: $breakpoint-md) {
+    padding: 60px 32px;
+  }
+  @media (max-width: $breakpoint-sm) {
+    padding: 48px 24px;
+    text-align: center;
+  }
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  // max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: $breakpoint-sm) {
+    align-items: center;
+    max-width: 100%;
+  }
+}
+
+.ctaTitle {
+  font-family: $font-serif;
+  font-style: italic;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 300;
+  line-height: 1.1;
+  color: $color-white;
+  margin: 0;
+}
+
+.ctaDesc {
+  font-family: $font-sans;
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba($color-white, 0.65);
+  margin: 0 0 8px;
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 14px;
+  }
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 42px;
+  background: $color-orange;
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: darken($color-orange, 8%);
+    color: $color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba($color-orange, 0.35);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+// Subtle decorative blur element inside CTA
+.ctaBlob {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba($color-orange, 0.12) 0%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-md) {
+    width: 240px;
+    height: 240px;
+  }
+}

@@ -91,7 +91,7 @@ const Navbar = () => {
           <NavLink to="/about" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>
             About
           </NavLink>
-          <NavLink to="/projects" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>
+          <NavLink to="/products" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>
             Products
           </NavLink>
           <NavLink to="/blog" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>
@@ -164,6 +164,9 @@ const Navbar = () => {
               </NavLink>
               <NavLink to="/about" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
                 Studio
+              </NavLink>
+              <NavLink to="/products" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
+                Products
               </NavLink>
               <NavLink to="/projects" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
                 Cases

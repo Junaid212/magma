@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home/Home';
 import About from './pages/About/About';
+import Products from './pages/Products/Products';
 import Projects from './pages/Projects/Projects';
 import Blog from './pages/Blog/Blog';
 import Contact from './pages/Contact/Contact';
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="products" element={<Products />} />
           <Route path="projects" element={<Projects />} />
           <Route path="blog" element={<Blog />} />
           <Route path="contact" element={<Contact />} />

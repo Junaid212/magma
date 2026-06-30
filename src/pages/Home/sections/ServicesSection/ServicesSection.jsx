@@ -11,7 +11,7 @@ const services = [
         <path d="M3 21H21M3 7L12 2L21 7M5 21V7M19 21V7M9 21V14H15V21" stroke="#FF481F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'Architecture & Building',
+    title: 'Supply',
     image: 'https://images.unsplash.com/photo-1507149833265-60c372daea22?w=600&q=80',
     tags: 'Planning, 3D Visuallization, Landscape Design, Structural Drawing, CGI, Construction Supervision',
   },
@@ -23,7 +23,7 @@ const services = [
         <circle cx="12" cy="9" r="2" stroke="#FF481F" strokeWidth="1.5"/>
       </svg>
     ),
-    title: 'Interior and Exterior Design',
+    title: 'Manufacturing ( cutting and polishing )',
     image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80',
     tags: 'Interior Design, Exterior Design, Rennovation, Sustainable Design, Installation, Plumbing System, 3D Experience',
   },
@@ -35,7 +35,7 @@ const services = [
         <path d="M12 13V17M9 15H15" stroke="#FF481F" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
-    title: 'Furniture Productions',
+    title: 'Installation',
     image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80',
     tags: 'Bespoke Furniture, Material Supply, Online Store, Distribute, 3D Modeling',
   },
@@ -46,7 +46,7 @@ const services = [
         <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="#FF481F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
-    title: 'Project Consulting & Supervisor',
+    title: 'Maintenance',
     image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80',
     tags: 'Project Analysis, Bid Documentation, Construction Supervisor',
   },
