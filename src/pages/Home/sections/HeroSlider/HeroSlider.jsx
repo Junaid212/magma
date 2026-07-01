@@ -6,17 +6,19 @@ import { gsap, ScrollTrigger } from '../../../../utils/gsapConfig';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import styles from './HeroSlider.module.scss';
+import img1 from '../../../../assets/images/img/1.webp';
+import img2 from '../../../../assets/images/img/2.webp';
 
 const slides = [
   {
     id: 1,
-    bg: './assets/images/img/1.webp',
+    bg: img1,
     title: 'archin',
     subtitle: 'Architecture Design Studio',
   },
   {
     id: 2,
-    bg: 'https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?w=1920&q=80',
+    bg: img2,
     title: 'shape',
     subtitle: 'Architecture Language Signature',
   },

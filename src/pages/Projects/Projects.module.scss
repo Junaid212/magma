@@ -1,0 +1,518 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+// ============================================================
+// Projects Page — Hero Banner (mirrors About/Services)
+// ============================================================
+
+.projectsPage {
+  background: $color-white;
+}
+
+.heroSection {
+  background-color: $color-dark;
+  padding: 180px 0 110px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) { padding: 140px 0 80px; }
+  @media (max-width: $breakpoint-sm) { padding: 120px 0 60px; }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    display: block;
+  }
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba($color-dark, 0.9) 0%, rgba($color-dark, 0.6) 100%);
+  z-index: 1;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.heroBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+
+  span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.45);
+
+    &.sep   { color: rgba($color-white, 0.25); }
+    &.active { color: $color-orange; }
+  }
+}
+
+.heroTitle {
+  font-size: clamp(46px, 10vw, 60px);
+  font-weight: 400;
+  line-height: 1;
+  color: $color-white;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+// ============================================================
+// Highlighted Products Section
+// ============================================================
+
+.highlightSection {
+  background: $color-white;
+  padding: 80px 0 100px;
+
+  @media (max-width: $breakpoint-md) { padding: 60px 0 80px; }
+}
+
+// ── Section Header ──
+
+.sectionHeader {
+  margin-bottom: 40px;
+}
+
+.headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 32px 0 28px;
+  // Dashed top border
+  border-top: 1.5px dashed rgba($color-dark, 0.2);
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popularBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.popularIcon {
+  display: flex;
+  align-items: center;
+
+  svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+}
+
+.popularText {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+}
+
+.sectionTitle {
+  font-family: $font-serif;
+  font-size: clamp(32px, 4vw, 44px);
+  font-weight: 400;
+  color: $color-dark;
+  line-height: 1.05;
+  margin: 0;
+  letter-spacing: -0.5px;
+  font-style: italic;
+}
+
+.sectionDesc {
+  font-family: $font-sans;
+  font-size: 13px;
+  line-height: 1.75;
+  color: $color-gray-medium;
+  max-width: 340px;
+  margin: 0;
+  padding-top: 4px;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-md) {
+    max-width: 100%;
+  }
+}
+
+// Dashed divider
+.dashedDivider {
+  width: 100%;
+  height: 0;
+  border-top: 1.5px dashed rgba($color-dark, 0.2);
+  margin: 0 0 28px;
+}
+
+// Filter row
+.filterRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filterTabs {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.filterTab {
+  padding: 8px 18px;
+  border: none;
+  background: transparent;
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 500;
+  color: $color-gray-medium;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.25s ease;
+  letter-spacing: 0.2px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: $color-dark;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    transform-origin: center;
+  }
+
+  &.active {
+    color: $color-dark;
+    font-weight: 600;
+
+    &::after { transform: scaleX(1); }
+  }
+
+  &:hover:not(.active) { color: $color-dark; }
+
+  // Pipe separator
+  & + &::before {
+    content: '|';
+    color: rgba($color-dark, 0.15);
+    margin-right: 0;
+    font-size: 11px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.inquireBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 22px;
+  border: 1px solid $color-dark;
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-dark;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $color-dark;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================================
+// Products Grid — masonry-style 3-col
+// ============================================================
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 6px;
+
+  // Layout matching the UI image:
+  // Row 1: col1=card1, col2=card2, col3=card3(spans rows)
+  // Row 2: col1=card4, col2=card5, col3=card3(continued)
+  // Card 6 sits in last column row 2 — but since card3 spans,
+  // we handle this with nth-child placement
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: $breakpoint-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Position each card explicitly to match the image layout
+// Row 1: col1=card1, col2=card2, col3=card3(spans both rows)
+// Row 2: col1=card4, col2=card5, col3=card3(continued)
+// Card 6 shown on its own row when span card is in data
+
+.productCard:nth-child(1) { grid-column: 1; grid-row: 1; }
+.productCard:nth-child(2) { grid-column: 2; grid-row: 1; }
+.productCard:nth-child(3) { grid-column: 3; grid-row: 1 / span 2; }
+.productCard:nth-child(4) { grid-column: 1; grid-row: 2; }
+.productCard:nth-child(5) { grid-column: 2; grid-row: 2; }
+// 6th card — shown when filtering to a category without a span card, auto-placed
+
+// On tablet/mobile, fall back to automatic placement
+@media (max-width: $breakpoint-lg) {
+  .productCard:nth-child(1),
+  .productCard:nth-child(2),
+  .productCard:nth-child(3),
+  .productCard:nth-child(4),
+  .productCard:nth-child(5),
+  .productCard:nth-child(6) {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+
+.productCard {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 260px;
+
+  // Normal height
+  &:not(.cardSpan) {
+    height: 280px;
+
+    @media (max-width: $breakpoint-md) { height: 240px; }
+    @media (max-width: $breakpoint-sm) { height: 260px; }
+  }
+
+  &:hover {
+    .cardImg img { transform: scale(1.06); }
+    .cardOverlay { opacity: 1; }
+  }
+}
+
+// Spanning card is taller (2 rows = ~566px with 6px gap)
+.cardSpan {
+  height: 566px; // ~280*2 + 6px gap
+
+  @media (max-width: $breakpoint-lg) {
+    height: 360px;
+    grid-row: auto !important;
+    grid-column: auto !important;
+  }
+  @media (max-width: $breakpoint-sm) { height: 300px; }
+}
+
+.cardImg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.65s ease;
+  }
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  transition: opacity 0.3s ease;
+}
+
+// Badge — top right
+.cardBadge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  background: $color-white;
+  color: $color-dark;
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+// Info block — bottom overlay
+.cardInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  padding: 22px 20px 20px;
+}
+
+.cardTitle {
+  font-family: $font-sans;
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-white;
+  margin: 0 0 4px;
+  line-height: 1.25;
+  letter-spacing: -0.1px;
+}
+
+.cardSubtitle {
+  font-family: $font-sans;
+  font-size: 12px;
+  color: rgba($color-white, 0.75);
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.cardPrice {
+  display: inline-block;
+  background: rgba($color-white, 0.15);
+  border: 1px solid rgba($color-white, 0.35);
+  backdrop-filter: blur(6px);
+  color: $color-white;
+  font-family: $font-sans;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 3px;
+  letter-spacing: 0.3px;
+}
+
+// ============================================================
+// CTA Strip
+// ============================================================
+
+.ctaStrip {
+  background-color: $color-beige;
+  padding: 100px 0;
+
+  @media (max-width: $breakpoint-md) { padding: 70px 0; }
+}
+
+.ctaInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.ctaText {
+  max-width: 700px;
+}
+
+.sectionMeta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.metaLine {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: $color-orange;
+  flex-shrink: 0;
+}
+
+.metaLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+}
+
+.ctaHeading {
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-weight: 600;
+  color: $color-dark;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+}
+
+.ctaDesc {
+  font-family: $font-sans;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #777777;
+  margin: 0;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 17px 42px;
+  background: $color-orange;
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: $transition-fast;
+  flex-shrink: 0;
+
+  &:hover {
+    background: darken(#FF481F, 10%);
+    color: $color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba($color-orange, 0.35);
+  }
+}

@@ -2,6 +2,11 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap, ScrollTrigger } from '../../../../utils/gsapConfig';
 import styles from './ServicesSection.module.scss';
+import serviceImg from '../../../../assets/images/img/10.webp';
+import serviceImg2 from '../../../../assets/images/img/11.webp';
+import serviceImg3 from '../../../../assets/images/img/12.webp';
+import serviceImg4 from '../../../../assets/images/img/13.webp';
+
 
 const services = [
   {
@@ -12,7 +17,7 @@ const services = [
       </svg>
     ),
     title: 'Supply',
-    image: 'https://images.unsplash.com/photo-1507149833265-60c372daea22?w=600&q=80',
+    image: serviceImg,
     tags: 'Planning, 3D Visuallization, Landscape Design, Structural Drawing, CGI, Construction Supervision',
   },
   {
@@ -24,7 +29,7 @@ const services = [
       </svg>
     ),
     title: 'Manufacturing ( cutting and polishing )',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80',
+    image: serviceImg2,
     tags: 'Interior Design, Exterior Design, Rennovation, Sustainable Design, Installation, Plumbing System, 3D Experience',
   },
   {
@@ -36,7 +41,7 @@ const services = [
       </svg>
     ),
     title: 'Installation',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80',
+    image: serviceImg3,
     tags: 'Bespoke Furniture, Material Supply, Online Store, Distribute, 3D Modeling',
   },
   {
@@ -47,7 +52,7 @@ const services = [
       </svg>
     ),
     title: 'Maintenance',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&q=80',
+    image: serviceImg4,
     tags: 'Project Analysis, Bid Documentation, Construction Supervisor',
   },
 ];

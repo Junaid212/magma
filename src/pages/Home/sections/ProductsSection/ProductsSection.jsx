@@ -1,32 +1,37 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap, ScrollTrigger } from '../../../../utils/gsapConfig';
 import styles from './ProductsSection.module.scss';
+import img1 from '../../../../assets/images/img/4.webp';
+import img2 from '../../../../assets/images/img/5.webp';
+import img3 from '../../../../assets/images/img/6.webp';
+import img4 from '../../../../assets/images/img/7.webp';
+import img5 from '../../../../assets/images/img/8.webp';
 
 const products = [
   {
     id: 1,
     name: 'Onyx\n& Stones',
-    image: 'https://images.unsplash.com/photo-1565034946487-077786996e27?w=500&q=85',
+    image: img1,
   },
   {
     id: 2,
     name: 'Marbles',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85',
+    image: img2,
   },
   {
     id: 3,
     name: 'Mosaics',
-    image: 'https://images.unsplash.com/photo-1554995207-c18c203602cb?w=500&q=85',
+    image: img3,
   },
   {
     id: 4,
     name: 'Furnishing',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=85',
+    image: img4,
   },
   {
     id: 5,
     name: 'Finitures',
-    image: 'https://images.unsplash.com/photo-1628566638003-8ccd6fce6869?w=500&q=85',
+    image: img5,
   },
 ];
 

@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import { gsap, ScrollTrigger } from '../../utils/gsapConfig';
 import Footer from '../../components/Footer/Footer';
 import styles from './About.module.scss';
+import aboutImg from '../../assets/images/img/16.webp';
+import missionImg from '../../assets/images/img/17.webp';
+import visionImg from '../../assets/images/img/18.webp';
 
 // ─── Data ───────────────────────────────────────────────────
 
@@ -317,7 +320,7 @@ const About = () => {
             <div className={styles.aboutImageSide} ref={imageRef}>
               <div className={styles.mainImageWrap}>
                 <img
-                  src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=900&q=85"
+                  src={aboutImg}
                   alt="Master craftsman working with marble"
                 />
               </div>
@@ -432,7 +435,7 @@ const About = () => {
             >
               <div className={styles.mvCardBg}>
                 <img
-                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=85"
+                  src={missionImg}
                   alt="Mission — precision stone craftsmanship"
                 />
               </div>
@@ -465,7 +468,7 @@ const About = () => {
             >
               <div className={styles.mvCardBg}>
                 <img
-                  src="https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=900&q=85"
+                  src={visionImg}
                   alt="Vision — future of stone design"
                 />
               </div>

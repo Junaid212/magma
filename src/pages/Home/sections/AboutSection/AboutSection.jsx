@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap, ScrollTrigger } from '../../../../utils/gsapConfig';
 import styles from './AboutSection.module.scss';
+import aboutImg from '../../../../assets/images/img/3.webp';
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
@@ -140,7 +141,7 @@ const AboutSection = () => {
           <div className={styles.centerCol}>
             <div className={styles.imageWrap} ref={imageRef}>
               <img
-                src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+                src={aboutImg}
                 alt="Modern architectural building"
                 className={styles.aboutImage}
               />

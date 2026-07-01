@@ -94,7 +94,7 @@ const Navbar = () => {
           <NavLink to="/products" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>
             Products
           </NavLink>
-          <NavLink to="/blog" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>
+          <NavLink to="/services" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>
             Services
           </NavLink>
           <NavLink to="/customization" className={({ isActive }) => `${styles.navLink} ${isActive ? styles.active : ''}`}>

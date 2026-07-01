@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap, ScrollTrigger } from '../../../../utils/gsapConfig';
 import styles from './ProjectsSection.module.scss';
+import projectImg from '../../../../assets/images/img/14.webp';
+import projectImg2 from '../../../../assets/images/img/15.webp';
 
 const filterTabs = ['Featured', 'Architecture', 'Interior', 'Landscape', 'Furniture'];
 
@@ -10,7 +12,7 @@ const projects = [
     id: 1,
     title: 'Townhouse in San Joe',
     desc: 'This area will is short description of project, you can select to show or hide it, this a sample short paragraph for this.',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+    image: projectImg,
     tags: ['Architecture', 'Furniture'],
     categories: ['Featured', 'Architecture', 'Furniture'],
   },
@@ -18,7 +20,7 @@ const projects = [
     id: 2,
     title: 'Homestay Rennovation and Interior Design',
     desc: 'This area will is short description of project, you can select to show or hide it, this a sample short paragraph for this.',
-    image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80',
+    image: projectImg2,
     tags: ['Furniture', 'Furniture'],
     categories: ['Featured', 'Interior', 'Furniture'],
   },
