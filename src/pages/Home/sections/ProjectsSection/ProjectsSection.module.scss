@@ -3,7 +3,7 @@
 
 .projectsSection {
   background: $color-gray-light;
-  padding: 40px 0 80px;
+  padding: 40px 0 40px;
 
   .sectionHeader {
     margin-bottom: 50px;
@@ -135,7 +135,10 @@
     }
 
     @include sm {
-      height: 250px;
+      height: 150px;
+    }
+    @include xs {
+      height: 150px;
     }
   }
 

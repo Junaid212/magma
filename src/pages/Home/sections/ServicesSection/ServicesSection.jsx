@@ -6,6 +6,8 @@ import serviceImg from '../../../../assets/images/img/10.webp';
 import serviceImg2 from '../../../../assets/images/img/11.webp';
 import serviceImg3 from '../../../../assets/images/img/12.webp';
 import serviceImg4 from '../../../../assets/images/img/13.webp';
+import stoneImg from '../../../../assets/images/img/stone.png';
+import { ArrowUpRight } from 'lucide-react';
 
 
 const services = [
@@ -162,7 +164,7 @@ const ServicesSection = () => {
                 <img src={services[0].image} alt={services[0].title} />
               </div>
               <p className={styles.cardTags}>{services[0].tags}</p>
-              <button className={styles.cardArrow} aria-label="Learn more">↗</button>
+              <button className={styles.cardArrow} aria-label="Learn more"><ArrowUpRight strokeWidth={0.75} /></button>
             </div>
           </div>
 
@@ -175,7 +177,7 @@ const ServicesSection = () => {
                 <img src={services[1].image} alt={services[1].title} />
               </div>
               <p className={styles.cardTags}>{services[1].tags}</p>
-              <button className={styles.cardArrow} aria-label="Learn more">↗</button>
+              <button className={styles.cardArrow} aria-label="Learn more"><ArrowUpRight strokeWidth={0.75} /></button>
             </div>
           </div>
 
@@ -188,7 +190,7 @@ const ServicesSection = () => {
                 <img src={services[2].image} alt={services[2].title} />
               </div>
               <p className={styles.cardTags}>{services[2].tags}</p>
-              <button className={styles.cardArrow} aria-label="Learn more">↗</button>
+              <button className={styles.cardArrow} aria-label="Learn more"><ArrowUpRight strokeWidth={0.75} /></button>
             </div>
           </div>
 
@@ -201,23 +203,23 @@ const ServicesSection = () => {
                 <img src={services[3].image} alt={services[3].title} />
               </div>
               <p className={styles.cardTags}>{services[3].tags}</p>
-              <button className={styles.cardArrow} aria-label="Learn more">↗</button>
+              <button className={styles.cardArrow} aria-label="Learn more"><ArrowUpRight strokeWidth={0.75} /></button>
             </div>
           </div>
         </div>
 
         {/* CTA Button */}
-        <div className={styles.ctaWrap} ref={ctaRef}>
+        {/* <div className={styles.ctaWrap} ref={ctaRef}>
           <Link to="/contact" className={styles.quotaBtn}>
-            Get A Free Quote Now ↗
+            Get A Free Quote Now 
           </Link>
-        </div>
+        </div> */}
       </div>
 
       {/* Decorative building image at bottom */}
       <div className={styles.bottomBuilding}>
         <img
-          src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80"
+          src={stoneImg}
           alt="Architecture building"
         />
       </div>

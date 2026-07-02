@@ -101,7 +101,7 @@
     }
 
     @include xs {
-      padding-left: 0;
+      paddingt: 10px;
       text-align: left;
       margin-bottom: 30px;
     }
@@ -117,15 +117,15 @@
     margin-bottom: 20px;
 
     @include md {
-      font-size: 80px;
+      font-size: 80px !important;
     }
 
     @include sm {
-      font-size: 60px;
+      font-size: 60px !important;
     }
 
     @include xs {
-      font-size: 50px;
+      font-size: 90px !important;
     }
   }
 
@@ -149,9 +149,13 @@
     flex-shrink: 0;
     padding-left: 60px;
 
-    @include lg {
+    @include xl {
       width: 280px;
       padding-left: 40px;
+    }
+    @include lg {
+      width: 280px !important;
+      padding-left: 40px !important;
     }
 
     @include md {
@@ -160,7 +164,7 @@
     }
 
     @include sm {
-      display: none;
+      // display: none;
     }
   }
 

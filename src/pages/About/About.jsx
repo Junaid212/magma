@@ -6,6 +6,7 @@ import styles from './About.module.scss';
 import aboutImg from '../../assets/images/img/16.webp';
 import missionImg from '../../assets/images/img/17.webp';
 import visionImg from '../../assets/images/img/18.webp';
+import { ArrowUpRight } from 'lucide-react';
 
 // ─── Data ───────────────────────────────────────────────────
 
@@ -369,7 +370,7 @@ const About = () => {
               </div>
 
               <Link to="/contact" className={styles.aboutCta}>
-                Work With Us ↗
+                Work With Us <ArrowUpRight strokeWidth={0.75} />
               </Link>
             </div>
 
@@ -534,7 +535,7 @@ const About = () => {
               </p>
             </div>
             <Link to="/contact" className={styles.teamCta}>
-              Get In Touch ↗
+              Get In Touch <ArrowUpRight strokeWidth={0.75} />
             </Link>
           </div>
         </div>

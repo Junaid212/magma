@@ -148,14 +148,14 @@ const Navbar = () => {
               </div>
               <div className={styles.logoText}>
                 <span>magma</span>
-                {/* <span>co.</span> */}
+                <span>co.</span>
               </div>
             </div>
 
             {/* Paragraph Description */}
-            <p className={styles.drawerDesc}>
+            {/* <p className={styles.drawerDesc}>
               We collaborate with clients to create buildings and environments in dialogue with culture and place. And become one of the country's leading architectural practices.
-            </p>
+            </p> */}
 
             {/* Mobile Navigation List (Visible only on <= 992px) */}
             <div className={styles.drawerMenu}>
@@ -163,16 +163,19 @@ const Navbar = () => {
                 Home
               </NavLink>
               <NavLink to="/about" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
-                Studio
+                About
               </NavLink>
               <NavLink to="/products" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
                 Products
               </NavLink>
-              <NavLink to="/projects" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
-                Cases
+              <NavLink to="/services" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
+                Services
               </NavLink>
-              <NavLink to="/blog" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
-                News
+              <NavLink to="/customization" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
+                Customization
+              </NavLink>
+              <NavLink to="/projects" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
+                Projects
               </NavLink>
               <NavLink to="/contact" className={({ isActive }) => `${styles.drawerNavLink} ${isActive ? styles.active : ''}`}>
                 Contact
@@ -184,7 +187,7 @@ const Navbar = () => {
           <div className={styles.drawerInfo}>
             <div className={styles.infoItem}>
               <h4>Get in touch</h4>
-              <a href="mailto:hello@archinstudio.co">hello@archinstudio.co</a>
+              <a href="mailto:hello@archinstudio.co">hello@magmastone.co</a>
               <a href="tel:+05432567887">(054) 3256 78 87</a>
             </div>
 
@@ -203,7 +206,7 @@ const Navbar = () => {
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
             </div>
             <div className={styles.copyright}>
-              &copy; {new Date().getFullYear()} Archin.
+              &copy; {new Date().getFullYear()} Magma.
             </div>
           </div>
         </div>

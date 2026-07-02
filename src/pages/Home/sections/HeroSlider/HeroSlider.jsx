@@ -8,18 +8,20 @@ import 'swiper/css/effect-fade';
 import styles from './HeroSlider.module.scss';
 import img1 from '../../../../assets/images/img/1.webp';
 import img2 from '../../../../assets/images/img/2.webp';
+import { LuMoveUpRight } from 'react-icons/lu';
+import { MoveUpRight } from 'lucide-react';
 
 const slides = [
   {
     id: 1,
     bg: img1,
-    title: 'archin',
+    title: 'magma',
     subtitle: 'Architecture Design Studio',
   },
   {
     id: 2,
     bg: img2,
-    title: 'shape',
+    title: 'magma',
     subtitle: 'Architecture Language Signature',
   },
   // {
@@ -152,7 +154,7 @@ const HeroSlider = () => {
                       className={styles.ctaBtn}
                       ref={ctaRef}
                     >
-                      Our Services ↗
+                      Our Services <MoveUpRight strokeWidth={0.75} />
                     </Link>
                   </div>
                 </div>

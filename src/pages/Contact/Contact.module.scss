@@ -1,0 +1,666 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+// ============================================================
+// Contact Page
+// ============================================================
+
+.contactPage {
+  background: $color-white;
+}
+
+// ============================================================
+// Hero Banner — matches About / Services / Projects pattern
+// ============================================================
+
+.heroSection {
+  background-color: $color-dark;
+  padding: 180px 0 110px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) { padding: 140px 0 80px; }
+  @media (max-width: $breakpoint-sm) { padding: 120px 0 60px; }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.18;
+    display: block;
+  }
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba($color-dark, 0.92) 0%, rgba($color-dark, 0.65) 100%);
+  z-index: 1;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.heroBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+
+  span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.45);
+
+    &.sep    { color: rgba($color-white, 0.25); }
+    &.active { color: $color-orange; }
+  }
+}
+
+.heroTitle {
+  font-size: clamp(46px, 10vw, 60px);
+  font-weight: 400;
+  line-height: 1;
+  color: $color-white;
+  margin: 0 0 20px;
+  letter-spacing: -1px;
+}
+
+.heroSubtitle {
+  font-family: $font-sans;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba($color-white, 0.55);
+  max-width: 480px;
+  margin: 0;
+}
+
+// ============================================================
+// Shared Meta Tag
+// ============================================================
+
+.sectionMeta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.metaLine {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: $color-orange;
+  flex-shrink: 0;
+}
+
+.metaLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+}
+
+// ============================================================
+// Info Cards Strip
+// ============================================================
+
+.infoSection {
+  background: $color-beige;
+  padding: 0;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+
+  @media (max-width: $breakpoint-lg) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $breakpoint-sm) { grid-template-columns: 1fr; }
+}
+
+.infoCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 52px 40px;
+  border-right: 1px solid rgba($color-dark, 0.08);
+  background: $color-beige;
+  transition: background-color 0.3s ease;
+
+  &:last-child { border-right: none; }
+
+  &:hover {
+    background: rgba($color-white, 0.6);
+
+    .infoIconWrap {
+      background: $color-orange;
+
+      svg path, svg polyline, svg circle, svg rect {
+        stroke: $color-white;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    border-right: 1px solid rgba($color-dark, 0.08);
+    border-bottom: 1px solid rgba($color-dark, 0.08);
+
+    &:nth-child(2n) { border-right: none; }
+    &:last-child { border-bottom: none; }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    border-right: none;
+    border-bottom: 1px solid rgba($color-dark, 0.08);
+    padding: 36px 28px;
+
+    &:last-child { border-bottom: none; }
+  }
+}
+
+.infoIconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba($color-dark, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color 0.3s ease;
+
+  svg {
+    width: 22px;
+    height: 22px;
+
+    path, polyline, circle, rect {
+      transition: stroke 0.3s ease;
+    }
+  }
+}
+
+.infoCardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoLabel {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.infoValue {
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-dark;
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+
+  &:hover { color: $color-orange; }
+}
+
+.infoValueSub {
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 400;
+  color: $color-gray-medium;
+  text-decoration: none;
+  line-height: 1.4;
+  display: block;
+
+  &:hover { color: $color-orange; }
+}
+
+// ============================================================
+// Form + Side Panel Section
+// ============================================================
+
+.formSection {
+  background: $color-white;
+  padding: 110px 0;
+
+  @media (max-width: $breakpoint-md) { padding: 80px 0; }
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 80px;
+  align-items: start;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+// ── Left: Form ──
+
+.formWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formHeading {
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-weight: 600;
+  color: $color-dark;
+  line-height: 1.1;
+  margin: 0 0 36px;
+  letter-spacing: -0.5px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+
+  @media (max-width: $breakpoint-sm) { grid-template-columns: 1fr; }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  label {
+    font-family: $font-sans;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-dark;
+
+    span { color: $color-orange; }
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    background: $color-beige;
+    border: 1.5px solid transparent;
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-family: $font-sans;
+    font-size: 14px;
+    color: $color-dark;
+    transition: border-color 0.25s ease, background-color 0.25s ease;
+    outline: none;
+    appearance: none;
+
+    &::placeholder { color: rgba($color-dark, 0.35); }
+
+    &:focus {
+      border-color: $color-orange;
+      background: rgba($color-orange, 0.03);
+    }
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23999'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+    cursor: pointer;
+
+    option[value=''] { color: rgba($color-dark, 0.35); }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 130px;
+    line-height: 1.7;
+  }
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 17px 48px;
+  background: $color-orange;
+  border: none;
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-white;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: $transition-fast;
+  letter-spacing: 0.3px;
+
+  &:hover:not(:disabled) {
+    background: darken(#FF481F, 10%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba($color-orange, 0.35);
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.btnSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba($color-white, 0.3);
+  border-top-color: $color-white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+// Success state
+.successBox {
+  background: $color-beige;
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.successIcon {
+  width: 56px;
+  height: 56px;
+  background: rgba($color-orange, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+
+  svg { width: 28px; height: 28px; }
+}
+
+.successBox h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: $color-dark;
+  margin: 0;
+}
+
+.successBox p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: $color-gray-medium;
+  max-width: 380px;
+  margin: 0;
+}
+
+.resetBtn {
+  margin-top: 8px;
+  background: none;
+  border: 1.5px solid rgba($color-dark, 0.2);
+  border-radius: 50px;
+  padding: 12px 32px;
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 600;
+  color: $color-dark;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    background: $color-dark;
+    color: $color-white;
+    border-color: $color-dark;
+  }
+}
+
+// ── Right: Side Panel ──
+
+.sidePanel {
+  position: sticky;
+  top: 120px;
+}
+
+.sidePanelInner {
+  background: $color-dark;
+  border-radius: 24px;
+  padding: 50px 44px;
+
+  .metaLine { background: $color-orange; }
+  .metaLabel { color: rgba($color-white, 0.4); }
+
+  @media (max-width: $breakpoint-sm) { padding: 36px 28px; }
+}
+
+.sidePanelHeading {
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 600;
+  color: $color-white;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+
+.sidePanelDesc {
+  font-family: $font-sans;
+  font-size: 13px;
+  line-height: 1.8;
+  color: rgba($color-white, 0.5);
+  margin: 0 0 36px;
+}
+
+.sideContactList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 36px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+
+.sideContactIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba($color-white, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $color-orange;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.sideContactLabel {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba($color-white, 0.35);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.sideContactValue {
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-white;
+  text-decoration: none;
+  display: block;
+  line-height: 1.5;
+  transition: color 0.25s ease;
+
+  &:hover { color: $color-orange; }
+}
+
+// Social row
+.socialRow {
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid rgba($color-white, 0.08);
+  padding-top: 28px;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba($color-white, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba($color-white, 0.5);
+  transition: $transition-fast;
+  text-decoration: none;
+
+  svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  &:hover {
+    background: $color-orange;
+    border-color: $color-orange;
+    color: $color-white;
+    transform: translateY(-2px);
+  }
+}
+
+// ============================================================
+// Google Map Section
+// ============================================================
+
+.mapSection {
+  background: $color-beige;
+}
+
+.mapHeader {
+  padding: 80px 0 40px;
+}
+
+.mapHeaderInner {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mapHeading {
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-weight: 600;
+  color: $color-dark;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.mapFrame {
+  position: relative;
+  width: 100%;
+  height: 520px;
+
+  @media (max-width: $breakpoint-md) { height: 380px; }
+  @media (max-width: $breakpoint-sm) { height: 300px; }
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(0.2) contrast(1.02);
+  }
+}
+
+// Overlay info card on map
+.mapOverlayCard {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  background: $color-white;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  z-index: 2;
+
+  @media (max-width: $breakpoint-sm) {
+    left: 16px;
+    top: 16px;
+    padding: 14px 18px;
+    gap: 12px;
+  }
+}
+
+.mapCardIcon {
+  width: 44px;
+  height: 44px;
+  background: rgba($color-orange, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  svg { width: 22px; height: 22px; }
+}
+
+.mapCardTitle {
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 700;
+  color: $color-dark;
+  margin: 0 0 2px;
+  line-height: 1.3;
+}
+
+.mapCardAddr {
+  font-family: $font-sans;
+  font-size: 12px;
+  color: $color-gray-medium;
+  margin: 0;
+  line-height: 1.4;
+}

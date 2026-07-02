@@ -370,10 +370,13 @@
   gap: 12px;
 
   @media (max-width: $breakpoint-lg) {
+    // On tablet: drop to 2-col, reset all explicit placements
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: $breakpoint-sm) {
+    // On mobile: single column, only show images
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 
@@ -405,24 +408,36 @@
   grid-column: 1;
   grid-row: 1;
   height: 280px;
+
+  @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
+  @media (max-width: $breakpoint-sm) { height: 220px; }
 }
 
 .bentoImgMd {
   grid-column: 3;
   grid-row: 1;
   height: 280px;
+
+  @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
+  @media (max-width: $breakpoint-sm) { height: 220px; }
 }
 
 .bentoImgSm {
   grid-column: 2;
   grid-row: 2;
   height: 260px;
+
+  @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
+  @media (max-width: $breakpoint-sm) { height: 220px; }
 }
 
 .bentoImgBottomRight {
   grid-column: 4;
   grid-row: 2;
   height: 260px;
+
+  @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
+  @media (max-width: $breakpoint-sm) { height: 220px; }
 }
 
 .bentoImgOverlay {
@@ -464,6 +479,7 @@
 }
 
 // Stat tiles (cream/white style like the UI image)
+// Hidden on mobile — only image tiles are shown on small screens
 .bentoStat {
   background: $color-white;
   display: flex;
@@ -477,6 +493,11 @@
     background: $color-beige;
     border-color: rgba($color-orange, 0.2);
   }
+
+  // Hide on mobile — only image tiles visible
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
 }
 
 .bentoStat {
@@ -484,6 +505,8 @@
     grid-column: 2;
     grid-row: 1;
     height: 280px;
+
+    @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
   }
 }
 
@@ -491,12 +514,16 @@
   grid-column: 4;
   grid-row: 1;
   height: 280px;
+
+  @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
 }
 
 .bentoStatBottom {
   grid-column: 1;
   grid-row: 2;
   height: 260px;
+
+  @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
 }
 
 // Override 3rd stat to sit at col 3, row 2
@@ -504,6 +531,8 @@
   grid-column: 3;
   grid-row: 2;
   height: 260px;
+
+  @media (max-width: $breakpoint-lg) { grid-column: auto; grid-row: auto; }
 }
 
 .bentoStatNum {

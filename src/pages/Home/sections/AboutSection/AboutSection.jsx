@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { gsap, ScrollTrigger } from '../../../../utils/gsapConfig';
 import styles from './AboutSection.module.scss';
 import aboutImg from '../../../../assets/images/img/3.webp';
+import { ArrowUpRight, MoveUpRight } from 'lucide-react';
 
 const AboutSection = () => {
   const sectionRef = useRef(null);
@@ -120,10 +121,10 @@ const AboutSection = () => {
       </div>
 
       {/* Rotated vertical contact info on right */}
-      <div className={styles.sideContact}>
+      {/* <div className={styles.sideContact}>
         <span>HELLO@ARCHINSTUDIO.CO</span>
         <span>(054) 3256 78 87</span>
-      </div>
+      </div> */}
 
       <div className="container">
         <div className={styles.innerWrap}>
@@ -158,7 +159,7 @@ const AboutSection = () => {
               sustainable.
             </p>
             <Link to="/about" className={styles.studioBtn}>
-              Our Studio ↗
+              Our Studio <ArrowUpRight strokeWidth={0.75} />
             </Link>
           </div>
         </div>

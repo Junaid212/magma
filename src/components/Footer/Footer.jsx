@@ -49,21 +49,21 @@ const Footer = () => {
           <div className={styles.col}>
             <h4 className={styles.colTitle}>Services</h4>
             <ul className={styles.footerLinks}>
-              <li><Link to="/blog">Architecture & Building</Link></li>
-              <li><Link to="/blog">Interior and Exterior Design</Link></li>
-              <li><Link to="/blog">Furniture Productions</Link></li>
-              <li><Link to="/blog">Project Consulting</Link></li>
+              <li><Link to="/blog">Supply</Link></li>
+              <li><Link to="/blog">Manufacturing ( cutting and polishing )</Link></li>
+              <li><Link to="/blog">Installation</Link></li>
+              <li><Link to="/blog">Maintenance</Link></li>
             </ul>
           </div>
 
           {/* Column 3: Studio */}
           <div className={styles.col}>
-            <h4 className={styles.colTitle}>Studio</h4>
+            <h4 className={styles.colTitle}>Quick Links</h4>
             <ul className={styles.footerLinks}>
-              <li><Link to="/about">About Studio</Link></li>
-              <li><Link to="/projects">Our Cases</Link></li>
-              <li><Link to="/blog">Latest News</Link></li>
-              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/products">Products</Link></li>
+              <li><Link to="/projects">Projects</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
 
@@ -90,7 +90,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className={styles.footerBottom}>
           <p className={styles.copyright}>
-            © {new Date().getFullYear()} Archin Studio. All rights reserved.
+            © {new Date().getFullYear()} MAGMA Stone. All rights reserved.
           </p>
           {/* <div className={styles.bottomLinks}>
             <Link to="/">Privacy Policy</Link>

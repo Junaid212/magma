@@ -4,6 +4,7 @@ import { FaMagnifyingGlass, FaChevronRight } from 'react-icons/fa6';
 import { gsap, ScrollTrigger } from '../../utils/gsapConfig';
 import Footer from '../../components/Footer/Footer';
 import styles from './Products.module.scss';
+import { ArrowUpRight } from 'lucide-react';
 
 // ─── Stone Products Data ─────────────────────────────────────
 const stoneProducts = [
@@ -210,10 +211,10 @@ const Products = () => {
             </div>
 
             <h1 className={styles.heroTitle}>Our Products</h1>
-            <p className={styles.heroSubtitle}>
+            {/* <p className={styles.heroSubtitle}>
               Explore our premium collection of natural and engineered stones crafted for
               timeless architecture and interior spaces.
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
@@ -386,7 +387,7 @@ const Products = () => {
               </p>
               <div className="animate-cta">
                 <Link to="/contact" className={styles.ctaBtn}>
-                  Contact Us ↗
+                  Contact Us <ArrowUpRight strokeWidth={0.75} />
                 </Link>
               </div>
             </div>

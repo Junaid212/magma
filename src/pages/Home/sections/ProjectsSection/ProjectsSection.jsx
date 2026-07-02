@@ -89,7 +89,7 @@ const ProjectsSection = () => {
               ))}
             </div>
             <Link to="/projects" className={styles.seeAllBtn}>
-              See All Projects ↗
+              See All Projects 
             </Link>
           </div>
         </div>

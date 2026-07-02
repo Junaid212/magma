@@ -10,6 +10,7 @@ import img5  from '../../assets/images/img/5.webp';
 import img9  from '../../assets/images/img/9.webp';
 import img14 from '../../assets/images/img/14.webp';
 import img17 from '../../assets/images/img/17.webp';
+import { ArrowUpRight } from 'lucide-react';
 
 // ─── Data ───────────────────────────────────────────────────
 
@@ -196,7 +197,7 @@ const Projects = () => {
                 ))}
               </div>
               <Link to="/contact" className={styles.inquireBtn}>
-                Request a Quote ↗
+                Request a Quote <ArrowUpRight strokeWidth={0.75} />
               </Link>
             </div>
           </div>
@@ -253,7 +254,7 @@ const Projects = () => {
               </p>
             </div>
             <Link to="/contact" className={styles.ctaButton}>
-              Get In Touch ↗
+              Get In Touch <ArrowUpRight strokeWidth={0.75} />
             </Link>
           </div>
         </div>

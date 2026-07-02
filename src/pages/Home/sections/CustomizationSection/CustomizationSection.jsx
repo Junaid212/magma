@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { gsap, ScrollTrigger } from '../../../../utils/gsapConfig';
 import styles from './CustomizationSection.module.scss';
+import { ArrowUpRight } from 'lucide-react';
 
 const customizations = [
   {
@@ -266,7 +267,7 @@ const CustomizationSection = () => {
 
               {/* Arrow CTA */}
               <button className={styles.cardArrow} aria-label={`Learn more about ${item.title}`}>
-                ↗
+                <ArrowUpRight strokeWidth={0.75} />
               </button>
             </div>
           ))}
@@ -278,7 +279,7 @@ const CustomizationSection = () => {
             Every project is unique. Tell us yours.
           </p>
           <Link to="/contact" className={styles.ctaBtn}>
-            Start a Custom Project ↗
+            Start a Custom Project 
           </Link>
         </div>
       </div>
