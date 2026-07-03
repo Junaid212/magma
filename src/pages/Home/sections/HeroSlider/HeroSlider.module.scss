@@ -44,7 +44,7 @@
     padding-top: 80px;
 
     @include md {
-      padding: 0 40px;
+      // padding: 0 40px;
       padding-top: 80px;
     }
 
@@ -121,7 +121,7 @@
     }
 
     @include sm {
-      font-size: 60px !important;
+      font-size: 140px !important;
     }
 
     @include xs {

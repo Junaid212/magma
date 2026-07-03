@@ -1,0 +1,1032 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+// ============================================================
+// Customization Page — mirroring About & Services quality
+// Design system: $color-beige · $color-dark · $color-orange
+// $font-sans body · $font-serif accent · same hover/shadow/transition
+// ============================================================
+
+.pageWrapper {
+  background-color: $color-beige;
+  min-height: 100vh;
+}
+
+/* ──────────────────────────────────────────
+   HERO BANNER
+────────────────────────────────────────── */
+.heroSection {
+  background-color: $color-dark;
+  padding: 180px 0 110px;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) { padding: 140px 0 80px; }
+  @media (max-width: $breakpoint-sm) { padding: 120px 0 60px; }
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.18;
+    display: block;
+  }
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba($color-dark, 0.92) 0%, rgba($color-dark, 0.65) 100%);
+  z-index: 1;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.heroBreadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+
+  span {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.45);
+
+    &.sep    { color: rgba($color-white, 0.25); }
+    &.active { color: $color-orange; }
+  }
+}
+
+.heroTitle {
+  font-size: clamp(46px, 10vw, 60px);
+  font-weight: 400;
+  line-height: 1;
+  color: $color-white;
+  margin: 0 0 20px;
+  letter-spacing: -1px;
+}
+
+.heroSubtitle {
+  font-family: $font-sans;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba($color-white, 0.55);
+  max-width: 480px;
+  margin: 0;
+}
+
+/* ──────────────────────────────────────────
+   SHARED UTILITIES
+────────────────────────────────────────── */
+.sectionLabel {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+  margin: 0 0 18px;
+  display: block;
+}
+
+.sectionMeta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.metaLine {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: $color-orange;
+  flex-shrink: 0;
+}
+
+.metaLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+}
+
+/* ──────────────────────────────────────────
+   INTRO SECTION — image + text
+   Mirrors: About.module.scss .aboutSection patterns
+────────────────────────────────────────── */
+.introSection {
+  background-color: $color-beige;
+  padding: 110px 0;
+  position: relative;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) { padding: 80px 0; }
+}
+
+.introInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @media (max-width: $breakpoint-lg) { gap: 50px; }
+  @media (max-width: $breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+/* Left: image block */
+.introImageSide {
+  position: relative;
+}
+
+.mainImageWrap {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 20px 30px 70px rgba(0, 0, 0, 0.18);
+  height: 560px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+
+    &:hover { transform: scale(1.04); }
+  }
+
+  @media (max-width: $breakpoint-md) { height: 420px; }
+  @media (max-width: $breakpoint-sm) { height: 300px; }
+}
+
+.floatingCard {
+  position: absolute;
+  bottom: -28px;
+  right: -28px;
+  background: $color-dark;
+  color: $color-white;
+  border-radius: 16px;
+  padding: 26px 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  min-width: 180px;
+  z-index: 3;
+
+  @media (max-width: $breakpoint-sm) {
+    right: 0;
+    bottom: -20px;
+    padding: 18px 22px;
+  }
+}
+
+.floatNumber {
+  font-family: $font-sans;
+  font-size: 52px;
+  font-weight: 800;
+  color: $color-orange;
+  line-height: 1;
+  letter-spacing: -2px;
+  display: block;
+
+  em {
+    font-style: normal;
+    font-size: 32px;
+  }
+}
+
+.floatLabel {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba($color-white, 0.5);
+  margin-top: 6px;
+  display: block;
+  line-height: 1.5;
+}
+
+/* Right: text block */
+.introTextSide {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.introHeading {
+  font-size: clamp(32px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.08;
+  color: $color-dark;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+
+.introLead {
+  font-family: $font-sans;
+  font-size: 16px;
+  line-height: 1.85;
+  color: #555;
+  margin: 0;
+  border-left: 3px solid $color-orange;
+  padding-left: 20px;
+
+  @media (max-width: $breakpoint-sm) { font-size: 14px; }
+}
+
+.introBody {
+  font-family: $font-sans;
+  font-size: 14px;
+  line-height: 1.85;
+  color: #777;
+  margin: 0;
+}
+
+.statsRow {
+  display: flex;
+  gap: 0;
+  margin-top: 8px;
+  border-top: 1px solid rgba($color-dark, 0.1);
+  padding-top: 28px;
+}
+
+.statItem {
+  flex: 1;
+  border-right: 1px solid rgba($color-dark, 0.1);
+  padding-right: 24px;
+
+  &:last-child {
+    border-right: none;
+    padding-right: 0;
+    padding-left: 24px;
+  }
+}
+
+.statNum {
+  font-family: $font-sans;
+  font-size: 40px;
+  font-weight: 800;
+  color: $color-dark;
+  line-height: 1;
+  letter-spacing: -1.5px;
+  display: block;
+
+  em {
+    font-style: normal;
+    color: $color-orange;
+  }
+}
+
+.statText {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: $color-gray-medium;
+  margin-top: 8px;
+  display: block;
+}
+
+.introCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 38px;
+  border: 1px solid rgba($color-dark, 0.2);
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 500;
+  color: $color-dark;
+  background: rgba($color-white, 0.7);
+  text-decoration: none;
+  transition: $transition-fast;
+  align-self: flex-start;
+
+  svg { transition: transform 0.3s ease; }
+
+  &:hover {
+    background: $color-dark;
+    color: $color-white;
+    border-color: $color-dark;
+    transform: translateY(-2px);
+    svg { transform: translate(3px, -3px); }
+  }
+}
+
+/* ──────────────────────────────────────────
+   VALUES STRIP — dark section
+   Mirrors: About.module.scss .valuesStrip
+────────────────────────────────────────── */
+.valuesStrip {
+  background-color: $color-dark;
+  padding: 0;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media (max-width: $breakpoint-lg) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: $breakpoint-sm) { grid-template-columns: 1fr; }
+}
+
+.valueItem {
+  padding: 60px 44px;
+  border-right: 1px solid rgba($color-white, 0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.35s ease;
+
+  &:last-child { border-right: none; }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 0;
+    background: $color-orange;
+    transition: height 0.5s ease;
+  }
+
+  &:hover {
+    background-color: rgba($color-white, 0.03);
+    &::before { height: 100%; }
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    border-right: none;
+    border-bottom: 1px solid rgba($color-white, 0.07);
+    padding: 44px 36px;
+
+    &:nth-child(odd) { border-right: 1px solid rgba($color-white, 0.07); }
+    &:last-child, &:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    border-right: none !important;
+    border-bottom: 1px solid rgba($color-white, 0.07);
+    &:last-child { border-bottom: none; }
+  }
+}
+
+.valueIcon {
+  width: 32px;
+  height: 32px;
+
+  svg {
+    width: 32px;
+    height: 32px;
+    path, circle, rect { stroke: $color-orange; }
+  }
+}
+
+.valueTitle {
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-white;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.valueDesc {
+  font-family: $font-sans;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba($color-white, 0.45);
+  margin: 0;
+}
+
+/* ──────────────────────────────────────────
+   CAPABILITIES — SPLIT PANEL
+────────────────────────────────────────── */
+.capabilitiesSection {
+  background-color: $color-white;
+  padding: 100px 0 0;
+  overflow: hidden;
+
+  @media (max-width: $breakpoint-md) { padding: 70px 0 0; }
+}
+
+.capHeader {
+  padding-bottom: 60px;
+
+  @media (max-width: $breakpoint-md) { padding-bottom: 40px; }
+}
+
+.capHeading {
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 700;
+  color: $color-dark;
+  margin: 0 0 16px;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.capSubtitle {
+  font-size: 15px;
+  line-height: 1.75;
+  color: $color-gray-medium;
+  max-width: 520px;
+  margin: 0;
+}
+
+.capLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 580px;
+  padding: 0px 80px 0px 80px;
+
+  @media (max-width: $breakpoint-lg) { grid-template-columns: 1fr; }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .capLayout { padding: 0px 20px 0px 20px; }
+}
+
+.capList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba($color-dark, 0.1);
+}
+
+.capItem {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 26px 0;
+  border-bottom: 1px solid rgba($color-dark, 0.1);
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease;
+
+  @media (max-width: $breakpoint-sm) { padding: 20px 0; gap: 14px; }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 0%;
+    background: $color-orange;
+    transition: height 0.4s ease;
+  }
+
+  &:hover::before { height: 100%; }
+  &.capActive::before { height: 100%; }
+
+  &.capActive {
+    background-color: rgba($color-dark, 0.025);
+    .capTitle { color: $color-orange; }
+    .capIcon svg path, .capIcon svg rect { stroke: $color-dark; }
+    .capArrow { color: $color-orange; transform: translate(3px, -3px); }
+  }
+
+  &:hover .capArrow { transform: translate(2px, -2px); }
+}
+
+.capNumber {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: $color-gray-medium;
+  min-width: 26px;
+  flex-shrink: 0;
+
+  @media (max-width: $breakpoint-sm) { display: none; }
+}
+
+.capItemBody {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex: 1;
+  min-width: 0;
+}
+
+.capIcon {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+
+  svg {
+    width: 30px;
+    height: 30px;
+    path, rect, circle { stroke: $color-orange; transition: stroke 0.3s ease; }
+  }
+}
+
+.capItemText { flex: 1; min-width: 0; }
+
+.capTitle {
+  font-family: $font-sans;
+  font-size: 16px;
+  font-weight: 700;
+  color: $color-dark;
+  margin: 0 0 2px;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.capDesc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: $color-gray-medium;
+  margin: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease, margin 0.3s ease;
+
+  &.capDescVisible {
+    max-height: 80px;
+    opacity: 1;
+    margin-top: 8px;
+  }
+}
+
+.capArrow {
+  color: rgba($color-dark, 0.3);
+  flex-shrink: 0;
+  transition: $transition-fast;
+}
+
+.capImagePane {
+  position: relative;
+  overflow: hidden;
+  background: $color-dark;
+  min-height: 500px;
+
+  @media (max-width: $breakpoint-lg) { height: 380px; }
+  @media (max-width: $breakpoint-sm) { height: 260px; }
+}
+
+.capImageSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.05);
+    transition: transform 8s ease;
+    opacity: 0.8;
+  }
+
+  &.capSlideActive {
+    opacity: 1;
+    img { transform: scale(1); opacity: 0.9; }
+  }
+}
+
+.capImageLabel {
+  position: absolute;
+  bottom: 28px;
+  left: 28px;
+  z-index: 2;
+
+  span {
+    display: inline-block;
+    padding: 10px 22px;
+    background: rgba($color-dark, 0.72);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba($color-white, 0.12);
+    border-radius: 50px;
+    font-family: $font-sans;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-white;
+  }
+}
+
+/* ──────────────────────────────────────────
+   PROCESS SECTION
+   Mirrors: Services.module.scss .processSection patterns
+────────────────────────────────────────── */
+.processSection {
+  background-color: $color-beige;
+  padding: 110px 0;
+
+  @media (max-width: $breakpoint-md) { padding: 80px 0; }
+}
+
+.processHeader {
+  margin-bottom: 60px;
+
+  @media (max-width: $breakpoint-md) { margin-bottom: 40px; }
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+
+  @media (max-width: $breakpoint-lg) { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* Left: image card */
+.processImgCard {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (max-width: $breakpoint-md) { min-height: 380px; }
+}
+
+.processImgBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s ease;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba($color-dark, 0.92) 0%, rgba($color-dark, 0.3) 60%, transparent 100%);
+  }
+}
+
+.processImgCard:hover .processImgBg img { transform: scale(1.05); }
+
+.processImgContent {
+  position: relative;
+  z-index: 2;
+  padding: 50px 44px;
+
+  @media (max-width: $breakpoint-sm) { padding: 36px 28px; }
+}
+
+.processImgTag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.processTagDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-orange;
+  flex-shrink: 0;
+}
+
+.processTagText {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: $color-orange;
+}
+
+.processImgTitle {
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 700;
+  color: $color-white;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  letter-spacing: -0.3px;
+}
+
+.processImgBody {
+  font-family: $font-sans;
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba($color-white, 0.7);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Right: step cards 2×2 grid */
+.stepsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @media (max-width: $breakpoint-sm) { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.stepCard {
+  background: $color-white;
+  border-radius: 12px;
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid rgba($color-dark, 0.07);
+  transition: $transition-fast;
+
+  &:hover {
+    box-shadow: 0 12px 40px rgba($color-dark, 0.08);
+    transform: translateY(-4px);
+    border-color: rgba($color-orange, 0.2);
+  }
+
+  @media (max-width: $breakpoint-sm) { padding: 28px 24px; }
+}
+
+.stepNum {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: $color-orange;
+}
+
+.stepTitle {
+  font-family: $font-sans;
+  font-size: 18px;
+  font-weight: 700;
+  color: $color-dark;
+  margin: 0;
+  letter-spacing: -0.2px;
+  line-height: 1.3;
+}
+
+.stepDesc {
+  font-family: $font-sans;
+  font-size: 13px;
+  line-height: 1.8;
+  color: $color-gray-medium;
+  margin: 0;
+}
+
+/* ──────────────────────────────────────────
+   MATERIALS MARQUEE STRIP
+────────────────────────────────────────── */
+.materialsStrip {
+  background-color: $color-dark;
+  padding: 22px 0;
+  overflow: hidden;
+}
+
+.stripTrack {
+  display: flex;
+  gap: 0;
+  animation: marqueeScroll 22s linear infinite;
+  width: max-content;
+}
+
+.stripItem {
+  display: inline-flex;
+  align-items: center;
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba($color-white, 0.55);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+
+  &:hover { color: $color-orange; }
+}
+
+.stripDot {
+  margin: 0 22px;
+  color: $color-orange;
+  font-size: 18px;
+  line-height: 1;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ──────────────────────────────────────────
+   FAQ ACCORDION
+────────────────────────────────────────── */
+.faqSection {
+  padding: 110px 0 100px;
+  background-color: $color-beige;
+
+  @media (max-width: $breakpoint-md) { padding: 80px 0 70px; }
+}
+
+.faqLayout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 80px;
+  align-items: start;
+
+  @media (max-width: $breakpoint-xl) {
+    grid-template-columns: 300px 1fr;
+    gap: 60px;
+  }
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.faqHeading {
+  font-size: clamp(30px, 3.2vw, 44px);
+  font-weight: 700;
+  line-height: 1.12;
+  color: $color-dark;
+  margin: 0 0 20px;
+  letter-spacing: -0.4px;
+}
+
+.faqIntro {
+  font-size: 14px;
+  line-height: 1.8;
+  color: $color-gray-medium;
+  margin: 0 0 30px;
+}
+
+.faqLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: $color-dark;
+  text-decoration: none;
+  border-bottom: 1px solid rgba($color-dark, 0.25);
+  padding-bottom: 3px;
+  transition: $transition-fast;
+
+  svg { transition: transform 0.3s ease; }
+
+  &:hover {
+    color: $color-orange;
+    border-color: $color-orange;
+    svg { transform: translate(3px, -3px); }
+  }
+}
+
+.faqRight {
+  border-top: 1px solid rgba($color-dark, 0.1);
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba($color-dark, 0.1);
+  overflow: hidden;
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 26px 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-dark;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+
+  &:hover { color: $color-orange; }
+  .faqItem.faqOpen & { color: $color-orange; }
+}
+
+.faqChevron {
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+  color: $color-gray-medium;
+  .faqItem.faqOpen & { transform: rotate(180deg); color: $color-orange; }
+}
+
+.faqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s ease;
+
+  p {
+    font-size: 14px;
+    line-height: 1.85;
+    color: $color-gray-medium;
+    margin: 0;
+    padding-bottom: 26px;
+  }
+
+  .faqItem.faqOpen & { max-height: 300px; }
+}
+
+/* ──────────────────────────────────────────
+   CTA STRIP
+   Mirrors: Services.module.scss .ctaStrip exactly
+────────────────────────────────────────── */
+.ctaStrip {
+  background-color: $color-dark;
+  padding: 90px 0;
+
+  @media (max-width: $breakpoint-md) { padding: 70px 0; }
+}
+
+.ctaStripInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  @media (max-width: $breakpoint-lg) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 36px;
+  }
+}
+
+.ctaTextBlock { max-width: 620px; }
+
+.ctaHeading {
+  font-size: clamp(28px, 3.5vw, 46px);
+  font-weight: 700;
+  color: $color-white;
+  margin: 18px 0 16px;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.ctaDesc {
+  font-family: $font-sans;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba($color-white, 0.55);
+  margin: 0;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 48px;
+  background: $color-orange;
+  border-radius: 50px;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 600;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: $transition-fast;
+
+  svg { transition: transform 0.3s ease; }
+
+  &:hover {
+    background: darken(#FF481F, 10%);
+    color: $color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba($color-orange, 0.35);
+    svg { transform: translate(4px, -4px); }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 100%;
+    justify-content: center;
+  }
+}

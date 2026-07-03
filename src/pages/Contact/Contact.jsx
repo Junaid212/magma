@@ -117,13 +117,13 @@ const Contact = () => {
       {/* ══════════════════════════════════════════
           CONTACT INFO CARDS
       ══════════════════════════════════════════ */}
-      <section className={styles.infoSection} ref={infoRef}>
+      {/* <section className={styles.infoSection} ref={infoRef}>
         <div className="container">
 
-          <div className={styles.infoGrid}>
+          <div className={styles.infoGrid}> */}
 
             {/* Phone */}
-            <div className={styles.infoCard}>
+            {/* <div className={styles.infoCard}>
               <div className={styles.infoIconWrap}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -137,10 +137,10 @@ const Contact = () => {
                 <a href="tel:+923001234567" className={styles.infoValue}>+92 300 123 4567</a>
                 <a href="tel:+922112345678" className={styles.infoValueSub}>+92 21 1234 5678</a>
               </div>
-            </div>
+            </div> */}
 
             {/* Email */}
-            <div className={styles.infoCard}>
+            {/* <div className={styles.infoCard}>
               <div className={styles.infoIconWrap}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -158,10 +158,10 @@ const Contact = () => {
                 <a href="mailto:hello@magmastone.com" className={styles.infoValue}>hello@magmastone.com</a>
                 <a href="mailto:support@magmastone.com" className={styles.infoValueSub}>support@magmastone.com</a>
               </div>
-            </div>
+            </div> */}
 
             {/* Address */}
-            <div className={styles.infoCard}>
+            {/* <div className={styles.infoCard}>
               <div className={styles.infoIconWrap}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -179,10 +179,10 @@ const Contact = () => {
                 <span className={styles.infoValue}>Plot 14-C, Industrial Area</span>
                 <span className={styles.infoValueSub}>Karachi, Pakistan — 75700</span>
               </div>
-            </div>
+            </div> */}
 
             {/* Hours */}
-            <div className={styles.infoCard}>
+            {/* <div className={styles.infoCard}>
               <div className={styles.infoIconWrap}>
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="12" cy="12" r="10" stroke="#FF481F" strokeWidth="1.5"/>
@@ -197,11 +197,11 @@ const Contact = () => {
                 <span className={styles.infoValue}>Mon – Sat: 9:00 AM – 6:00 PM</span>
                 <span className={styles.infoValueSub}>Sunday: Closed</span>
               </div>
-            </div>
+            </div> */}
 
-          </div>
+          {/* </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ══════════════════════════════════════════
           FORM + SIDE INFO PANEL

@@ -8,6 +8,7 @@ import Projects from './pages/Projects/Projects';
 import Blog from './pages/Blog/Blog';
 import Services from './pages/Services/Services';
 import Contact from './pages/Contact/Contact';
+import Customization from './pages/Customization/Customization';
 import NotFound from './pages/NotFound/NotFound';
 
 // Global Stylesheet
@@ -25,6 +26,7 @@ function App() {
           <Route path="blog" element={<Blog />} />
           <Route path="services" element={<Services />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="customization" element={<Customization />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
