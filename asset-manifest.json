@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/magma/static/css/main.999fc9d1.css",
-    "main.js": "/magma/static/js/main.643018ed.js",
+    "main.css": "/magma/static/css/main.efbfa921.css",
+    "main.js": "/magma/static/js/main.90c54c64.js",
     "static/media/1.webp": "/magma/static/media/1.a04b01cb615983ef64b8.webp",
     "static/media/2.webp": "/magma/static/media/2.68984a168feaaf463239.webp",
     "static/media/17.webp": "/magma/static/media/17.fdfda5b216d9710e1b20.webp",
@@ -22,11 +22,11 @@
     "static/media/13.webp": "/magma/static/media/13.c1a6d2594ee8d0e8d573.webp",
     "static/media/8.webp": "/magma/static/media/8.8aa4a30a011431ac4c30.webp",
     "index.html": "/magma/index.html",
-    "main.999fc9d1.css.map": "/magma/static/css/main.999fc9d1.css.map",
-    "main.643018ed.js.map": "/magma/static/js/main.643018ed.js.map"
+    "main.efbfa921.css.map": "/magma/static/css/main.efbfa921.css.map",
+    "main.90c54c64.js.map": "/magma/static/js/main.90c54c64.js.map"
   },
   "entrypoints": [
-    "static/css/main.999fc9d1.css",
-    "static/js/main.643018ed.js"
+    "static/css/main.efbfa921.css",
+    "static/js/main.90c54c64.js"
   ]
 }
