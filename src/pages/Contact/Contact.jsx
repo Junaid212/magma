@@ -107,9 +107,9 @@ const Contact = () => {
               <span className={styles.active}>Contact</span>
             </div>
             <h1 className={styles.heroTitle}>Get In Touch</h1>
-            <p className={styles.heroSubtitle}>
+            {/* <p className={styles.heroSubtitle}>
               Have a project in mind? Our team is ready to listen, advise and deliver.
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
