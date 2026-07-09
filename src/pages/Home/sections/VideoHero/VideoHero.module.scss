@@ -1,0 +1,334 @@
+@import '../../../../styles/variables.scss';
+@import '../../../../styles/mixins.scss';
+
+// ─── Wrapper ────────────────────────────────────────────────────────────────
+.videoHeroWrapper {
+  position: relative;
+  width: 100%;
+}
+
+// ─── Scroll container – tall so the scrub has room to breathe ────────────────
+.scrollContainer {
+  height: 400vh; // 4× viewport = long scrub zone
+  position: relative;
+}
+
+// ─── Sticky viewport that stays pinned while we scroll ───────────────────────
+.stickyView {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+  overflow: hidden;
+  background: $color-dark;
+}
+
+// ─── VIDEO ───────────────────────────────────────────────────────────────────
+.videoWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  // GPU-promote the video layer so seeks don't trigger layout repaints
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  // Rich gradient: dark-left for readability + subtle full-overlay
+  background:
+    linear-gradient(
+      105deg,
+      rgba($color-dark, 0.82) 0%,
+      rgba($color-dark, 0.55) 45%,
+      rgba($color-dark, 0.25) 100%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba($color-dark, 0.3) 0%,
+      transparent 40%,
+      rgba($color-dark, 0.6) 100%
+    );
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+// ─── LEFT CONTENT ────────────────────────────────────────────────────────────
+.leftContent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 70px 140px !important;
+  max-width: 720px !important;
+
+  @include xl {
+    max-width: 560px !important;
+    padding: 100px 60px 140px !important;
+  }
+
+  @include md {
+    max-width: 100%;
+    padding: 100px 40px 180px;
+  }
+
+  @include xs {
+    padding: 90px 24px 200px;
+    justify-content: flex-end;
+  }
+}
+
+.tagline {
+  display: inline-block;
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-orange;
+  margin-bottom: 24px;
+  opacity: 0; // animated in
+}
+
+// ─── Staggered big title ─────────────────────────────────────────────────────
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 32px;
+  perspective: 600px;
+  gap: 0;
+}
+
+.wordRow {
+  display: block;
+  font-family: $font-sans;
+  font-size: clamp(72px, 9vw, 90px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -3px;
+  color: $color-white;
+  opacity: 0; // animated in
+
+  // Second word: outlined stroke style
+  &:nth-child(2) {
+    -webkit-text-stroke: 1.5px rgba($color-white, 0.5);
+    color: transparent;
+  }
+
+  // Third word: orange accent
+  &:nth-child(3) {
+    color: $color-orange;
+    -webkit-text-stroke: none;
+  }
+}
+
+// ─── Description ─────────────────────────────────────────────────────────────
+.heroDesc {
+  font-family: $font-sans;
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba($color-white, 0.72);
+  max-width: 400px;
+  margin-bottom: 36px;
+  opacity: 0; // animated in
+
+  @include xs {
+    font-size: 14px;
+    max-width: 100%;
+  }
+}
+
+// ─── CTA ─────────────────────────────────────────────────────────────────────
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 34px;
+  border-radius: 50px;
+  border: 1px solid rgba($color-white, 0.55);
+  background: rgba($color-white, 0.06);
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: $color-white;
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  align-self: flex-start;
+  opacity: 0; // animated in
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    background: $color-orange;
+    border-color: $color-orange;
+    color: $color-white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba($color-orange, 0.35);
+
+    svg {
+      transform: translate(3px, -3px);
+    }
+  }
+}
+
+// ─── Scroll hint ──────────────────────────────────────────────────────────────
+.scrollHint {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 48px;
+
+  @include xs {
+    display: none;
+  }
+}
+
+.scrollLine {
+  width: 1.5px;
+  height: 60px;
+  background: linear-gradient(
+    to bottom,
+    $color-orange 0%,
+    rgba($color-white, 0.2) 100%
+  );
+  transform-origin: top center;
+  // scaleY animated in via GSAP
+}
+
+.scrollLabel {
+  font-family: $font-sans;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba($color-white, 0.45);
+  writing-mode: horizontal-tb;
+}
+
+// ─── BOTTOM INFO BAR ─────────────────────────────────────────────────────────
+.infoBar {
+  position: absolute;
+  bottom: 70px; // sits just above the curve
+  left: 0;
+  right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 24px 70px;
+
+  @include xl {
+    padding: 24px 60px;
+  }
+
+  @include md {
+    padding: 24px 40px;
+  }
+
+  @include xs {
+    padding: 16px 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+    bottom: 80px;
+  }
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  @include xs {
+    flex: 1 0 40%;
+  }
+}
+
+.infoNum {
+  font-family: $font-sans;
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: $color-white;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.infoLabel {
+  font-family: $font-sans;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  color: rgba($color-white, 0.5);
+  text-transform: uppercase;
+}
+
+.infoDivider {
+  width: 1px;
+  height: 40px;
+  background: rgba($color-white, 0.15);
+  margin: 0 40px;
+
+  @include xs {
+    display: none;
+  }
+}
+
+// ─── VIDEO PROGRESS BAR ──────────────────────────────────────────────────────
+.progressTrack {
+  flex: 1;
+  height: 2px;
+  background: rgba($color-white, 0.1);
+  border-radius: 2px;
+  margin-left: auto;
+  overflow: hidden;
+  min-width: 80px;
+  max-width: 200px;
+
+  @include xs {
+    display: none;
+  }
+}
+
+.progressBar {
+  height: 100%;
+  background: $color-orange;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  // No CSS transition – GSAP drives this directly each RAF frame
+  will-change: transform;
+}
+
+// ─── BOTTOM CURVE ─────────────────────────────────────────────────────────────
+.bottomCurve {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: $color-beige;
+  border-radius: 40px 40px 0 0;
+  z-index: 5;
+
+  @include xs {
+    height: 30px;
+  }
+}

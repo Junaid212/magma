@@ -9,7 +9,7 @@ $gold:         #b79a5e;
 $dark:         #181818;
 
 .productsSection {
-  background-color: #ffffff;
+  background-color: #EAE8E3;
   padding: 50px 0 50px;
   overflow: hidden;
 }
@@ -116,7 +116,7 @@ $dark:         #181818;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
+  gap: 30px;
   flex: 1;
   min-width: 0;
 
@@ -172,18 +172,18 @@ $dark:         #181818;
   transition: transform 0.55s ease;
 
   .diamond:hover & {
-    transform: rotate(-45deg) scale(1.62);
+    transform: rotate(-45deg) scale(1.62) !important;
   }
 }
 
 // ------------ Tile Name ------------ //
 .tileName {
   // font-family: $font-display;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   color: $dark;
   text-align: center;
-  line-height: 1.35;
+  line-height: 1.5;
   margin: 0;
   letter-spacing: 0.3px;
 

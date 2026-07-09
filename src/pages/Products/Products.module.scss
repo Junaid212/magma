@@ -327,10 +327,10 @@ $gold: #b79a5e;
 }
 
 .categoryTitle {
-  font-family: $font-serif;
+  // font-family: $font-serif;
   font-size: clamp(32px, 4.5vw, 44px);
   font-weight: 400;
-  font-style: italic;
+  // font-style: italic;
   color: $color-dark;
   line-height: 1.1;
   margin: 0;

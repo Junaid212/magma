@@ -139,14 +139,14 @@
 }
 
 .sectionTitle {
-  font-family: $font-serif;
+  // font-family: $font-serif;
   font-size: clamp(32px, 4vw, 44px);
   font-weight: 400;
   color: $color-dark;
   line-height: 1.05;
   margin: 0;
   letter-spacing: -0.5px;
-  font-style: italic;
+  // font-style: italic;
 }
 
 .sectionDesc {

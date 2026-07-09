@@ -453,12 +453,12 @@ const About = () => {
                   transform environments into timeless experiences — serving clients with
                   integrity, precision, and unmatched craftsmanship.
                 </p>
-                <ul className={styles.mvCardPoints}>
+                {/* <ul className={styles.mvCardPoints}>
                   <li>Source the world's finest natural stone</li>
                   <li>Deliver precision-crafted bespoke solutions</li>
                   <li>Build lasting relationships through trust</li>
                   <li>Exceed client expectations on every project</li>
-                </ul>
+                </ul> */}
               </div>
             </div>
 
@@ -486,12 +486,12 @@ const About = () => {
                   as a living heritage — a future where every home and commercial space
                   carries the fingerprint of nature's finest materials.
                 </p>
-                <ul className={styles.mvCardPoints}>
+                {/* <ul className={styles.mvCardPoints}>
                   <li>Pioneer sustainable sourcing practices</li>
                   <li>Redefine luxury through natural materials</li>
                   <li>Inspire the next generation of craftsmen</li>
                   <li>Become the benchmark of global stone design</li>
-                </ul>
+                </ul> */}
               </div>
             </div>
           </div>

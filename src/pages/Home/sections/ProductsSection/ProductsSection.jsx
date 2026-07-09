@@ -10,7 +10,7 @@ import img5 from '../../../../assets/images/img/8.webp';
 const products = [
   {
     id: 1,
-    name: 'Onyx\n& Stones',
+    name: 'Onyx & Stones',
     image: img1,
   },
   {

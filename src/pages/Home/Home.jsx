@@ -1,4 +1,5 @@
 import React from 'react';
+import VideoHero from './sections/VideoHero/VideoHero';
 import HeroSlider from './sections/HeroSlider/HeroSlider';
 import AboutSection from './sections/AboutSection/AboutSection';
 import ServicesSection from './sections/ServicesSection/ServicesSection';
@@ -13,36 +14,49 @@ import TeamSection from './sections/TeamSection/TeamSection';
 import BlogSection from './sections/BlogSection/BlogSection';
 import ContactCTA from './sections/ContactCTA/ContactCTA';
 import Footer from '../../components/Footer/Footer';
+import ScrollRevealLine from './sections/ScrollRevealLine/ScrollRevealLine';
 
 const Home = () => {
   return (
     <div>
-      {/* 1. Hero Slider - Full viewport with 3 slides */}
+      {/* 1. Video Hero - Scroll-driven video scrub with animated text */}
+      {/* <VideoHero /> */}
       <HeroSlider />
 
-      {/* 2. About Section - Est. 1986, tilted image, years stat */}
-      <AboutSection />
+      {/*
+        ── SVG Scroll Line Wrapper ────────────────────────────────────────────
+        position: relative so the absolutely-positioned SVG can fill it.
+        The SVG line draws from top (AboutSection) to bottom (MarqueeSection)
+        as the user scrolls through this block.
+      */}
+      <div style={{ position: 'relative' }}>
+        {/* The decorative orange line — sits behind all sections */}
+        <ScrollRevealLine />
 
-      {/* Products - Nature Paints The Best Masterpieces */}
-      <ProductsSection />
+        {/* 2. About Section - Est. 1986, tilted image, years stat */}
+        <AboutSection />
 
-      {/* 3. Services Section - 4-col grid with icons */}
-      <ServicesSection />
+        {/* Products - Nature Paints The Best Masterpieces */}
+        <ProductsSection />
 
-      {/* Customization - Custom stone applications */}
-      <CustomizationSection />
+        {/* 3. Services Section - 4-col grid with icons */}
+        <ServicesSection />
 
-      {/* 4. Process Work - Accordion + rotated image */}
-      {/* <ProcessSection /> */}
+        {/* Customization - Custom stone applications */}
+        <CustomizationSection />
 
-      {/* 5. Featured Projects - Filter tabs + 2-col grid */}
-      <ProjectsSection />
+        {/* 4. Process Work - Accordion + rotated image */}
+        {/* <ProcessSection /> */}
 
-      {/* 6. Testimonials - Large quote slider */}
-      {/* <TestimonialsSection /> */}
+        {/* 5. Featured Projects - Filter tabs + 2-col grid */}
+        <ProjectsSection />
 
-      {/* 7. Marquee - Scrolling outlined text */}
-      <MarqueeSection />
+        {/* 6. Testimonials - Large quote slider */}
+        {/* <TestimonialsSection /> */}
+
+        {/* 7. Marquee - Scrolling outlined text */}
+        <MarqueeSection />
+      </div>
 
       {/* 8. Awards & Recognition - Dark section with award list */}
       {/* <AwardsSection /> */}
