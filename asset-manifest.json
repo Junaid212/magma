@@ -1,32 +1,43 @@
 {
   "files": {
-    "main.css": "/magma/static/css/main.e07926cd.css",
-    "main.js": "/magma/static/js/main.daff2495.js",
+    "main.css": "/magma/static/css/main.414877d7.css",
+    "main.js": "/magma/static/js/main.58f29382.js",
+    "static/media/magma-video.mp4": "/magma/static/media/magma-video.7d4253d4769dcf041828.mp4",
     "static/media/1.webp": "/magma/static/media/1.a04b01cb615983ef64b8.webp",
     "static/media/2.webp": "/magma/static/media/2.68984a168feaaf463239.webp",
     "static/media/17.webp": "/magma/static/media/17.fdfda5b216d9710e1b20.webp",
     "static/media/18.webp": "/magma/static/media/18.87c21dc6587b3112dad4.webp",
     "static/media/9.webp": "/magma/static/media/9.490b11e0877ae4e24e2a.webp",
     "static/media/16.webp": "/magma/static/media/16.4fc74db157986fa646dc.webp",
+    "static/media/29.webp": "/magma/static/media/29.9530043baee13eb252c7.webp",
     "static/media/stone.png": "/magma/static/media/stone.e86358cd5da4463e7626.png",
     "static/media/15.webp": "/magma/static/media/15.d0f9880f7a5fe396413d.webp",
+    "static/media/27.webp": "/magma/static/media/27.f450bc23ab61ba29a2b0.webp",
+    "static/media/21.webp": "/magma/static/media/21.716403d6cd22442a3d11.webp",
     "static/media/5.webp": "/magma/static/media/5.b9c2a9aedcfb1f22998e.webp",
+    "static/media/23.webp": "/magma/static/media/23.0f7eb31bd61099f16240.webp",
     "static/media/14.webp": "/magma/static/media/14.2ea2d245f62bcc4cc79a.webp",
+    "static/media/24.webp": "/magma/static/media/24.72f2d39d0a1500a01ec5.webp",
     "static/media/7.webp": "/magma/static/media/7.eba25a493a979183ce45.webp",
+    "static/media/25.webp": "/magma/static/media/25.b7b5a7aa0271552fbfe5.webp",
+    "static/media/22.webp": "/magma/static/media/22.df144eb7849b94d61b09.webp",
+    "static/media/20.webp": "/magma/static/media/20.aa7ac771ac0d3d43f6c4.webp",
     "static/media/10.webp": "/magma/static/media/10.1a7a112c2c3606360d9c.webp",
     "static/media/4.webp": "/magma/static/media/4.90ed3ab8b78d230702e4.webp",
     "static/media/3.webp": "/magma/static/media/3.931c080cb13a592e86a0.webp",
     "static/media/6.webp": "/magma/static/media/6.3da65260102e846304b0.webp",
+    "static/media/26.webp": "/magma/static/media/26.26aedb15171cf69f6b13.webp",
     "static/media/11.webp": "/magma/static/media/11.42a39ca1ca34d6cd4141.webp",
     "static/media/12.webp": "/magma/static/media/12.1e2fc71dae2a4da73030.webp",
+    "static/media/28.webp": "/magma/static/media/28.8f0139373a2c9ae36e1b.webp",
     "static/media/13.webp": "/magma/static/media/13.c1a6d2594ee8d0e8d573.webp",
     "static/media/8.webp": "/magma/static/media/8.8aa4a30a011431ac4c30.webp",
     "index.html": "/magma/index.html",
-    "main.e07926cd.css.map": "/magma/static/css/main.e07926cd.css.map",
-    "main.daff2495.js.map": "/magma/static/js/main.daff2495.js.map"
+    "main.414877d7.css.map": "/magma/static/css/main.414877d7.css.map",
+    "main.58f29382.js.map": "/magma/static/js/main.58f29382.js.map"
   },
   "entrypoints": [
-    "static/css/main.e07926cd.css",
-    "static/js/main.daff2495.js"
+    "static/css/main.414877d7.css",
+    "static/js/main.58f29382.js"
   ]
 }
